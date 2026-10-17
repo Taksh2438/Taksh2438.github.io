@@ -34,3 +34,134 @@ a:focus-visible, button:focus-visible {
   outline: 2px solid var(--green);
   outline-offset: 4px;
 }
+
+.site-header {
+  max-width: 1120px;
+  min-height: 76px;
+  margin: auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.logo span, .green-text {
+  color: var(--green);
+}
+
+.site-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.site-nav a {
+  color: var(--muted);
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--green);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.hero {
+  max-width: 1120px;
+  min-height: 560px;
+  margin: auto;
+  padding: 100px 24px 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 1.05;
+  letter-spacing: -4px;
+  margin: 20px 0;
+}
+
+.hero-description {
+  color: var(--muted);
+  max-width: 530px;
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 18px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+.button-primary {
+  background: var(--green);
+  color: #06120C;
+  border-color: var(--green);
+}
+
+.button-secondary:hover {
+  background: var(--surface);
+}
+
+.section {
+  max-width: 1120px;
+  margin: auto;
+  padding: 70px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.section h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 12px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.text-link {
+  display: inline-block;
+  color: var(--blue);
+  margin-top: 12px;
+}
+
+.site-footer {
+  max-width: 1120px;
+  margin: auto;
+  padding: 28px 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
