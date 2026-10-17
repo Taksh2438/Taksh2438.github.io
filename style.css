@@ -165,3 +165,48 @@ a:focus-visible, button:focus-visible {
 .site-footer p {
   margin: 0;
 }
+
+/* Floating 3D-style orbs */
+.hero-visual {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  right: 9%;
+  top: 130px;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.85;
+  animation: float 5s ease-in-out infinite alternate;
+}
+
+.orb-green {
+  background: radial-gradient(circle at 30% 25%, #9BFFD0, #16784F 65%, #07130D);
+  left: 0;
+  top: 20px;
+}
+
+.orb-red {
+  background: radial-gradient(circle at 30% 25%, #FFB0B6, #B82935 65%, #19080A);
+  right: 0;
+  top: 70px;
+  animation-delay: -2s;
+}
+
+.orb-blue {
+  background: radial-gradient(circle at 30% 25%, #B9D9FF, #1557B0 65%, #08101C);
+  left: 55px;
+  bottom: 0;
+  animation-delay: -1s;
+}
+
+@keyframes float {
+  from { transform: translateY(-8px) rotate(-5deg); }
+  to { transform: translateY(12px) rotate(8deg); }
+}
