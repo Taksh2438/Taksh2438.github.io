@@ -44,9 +44,8 @@
         </h1>
 
         <p class="hero-description">
-          I'm Taksh Mehta, a first-year Mechanical Engineering student
-          at CHARUSAT. I'm exploring robotics, machines, coding, and
-          automation through practical projects and experimentation.
+           I'm Taksh Mehta. I'm currently building HabitLens, a habit and
+           task tracking app, while exploring ideas in engineering and technology.
         </p>
 
         <div class="hero-actions">
@@ -88,32 +87,6 @@
           ENGINEERING IN PROGRESS
         </div>
       </div>
-    </section>
-
-    <section class="quick-facts" aria-label="Profile overview">
-      <article class="fact">
-        <span class="fact-label">CURRENTLY</span>
-        <h2>First Year</h2>
-        <p>B.Tech Mechanical Engineering</p>
-      </article>
-
-      <article class="fact">
-        <span class="fact-label">BUILDING</span>
-        <h2>HabitLens</h2>
-        <p>A habit and task tracking application</p>
-      </article>
-
-      <article class="fact">
-        <span class="fact-label">EXPLORING</span>
-        <h2>Robotics + AI</h2>
-        <p>Machines, automation, and intelligent systems</p>
-      </article>
-
-      <article class="fact">
-        <span class="fact-label">AGE</span>
-        <h2><span id="age">18</span> years</h2>
-        <p>Automatically calculated</p>
-      </article>
     </section>
 
     <section class="featured-section">
@@ -198,29 +171,5 @@
          target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
     </div>
   </footer>
-
-  <script>
-    // Calculate age from the public birth date.
-    // This date will be visible in the public source code.
-    const birthDate = new Date(2008, 2, 24);
-    const today = new Date();
-
-    let age = today.getFullYear() - birthDate.getFullYear();
-
-    const birthdayNotReached =
-      today.getMonth() < birthDate.getMonth() ||
-      (today.getMonth() === birthDate.getMonth() &&
-       today.getDate() < birthDate.getDate());
-
-    if (birthdayNotReached) {
-      age--;
-    }
-
-    document.getElementById("age").textContent = age;
-
-    // Update the footer year automatically.
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
 </body>
 </html>
