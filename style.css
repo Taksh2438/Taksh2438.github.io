@@ -338,3 +338,141 @@ a:focus-visible, button:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+.projects-page {
+  max-width: 1120px;
+  margin: auto;
+  padding: 70px 24px;
+}
+
+.projects-intro {
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+
+.projects-intro h1 {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.1;
+  letter-spacing: -3px;
+  margin: 18px 0;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: transform 200ms ease,
+              border-color 200ms ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--green);
+}
+
+.project-number {
+  padding: 18px 20px 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+}
+
+.project-art {
+  min-height: 170px;
+  margin: 16px 20px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.project-art span {
+  font-size: 5rem;
+  font-weight: 800;
+  opacity: 0.8;
+  letter-spacing: -5px;
+}
+
+.art-green {
+  color: #9BFFD0;
+  background: radial-gradient(circle at 50% 40%, #176344, #0A1510 75%);
+}
+
+.art-blue {
+  color: #B9D9FF;
+  background: radial-gradient(circle at 50% 40%, #174B8A, #09111D 75%);
+}
+
+.art-red {
+  color: #FFB0B6;
+  background: radial-gradient(circle at 50% 40%, #812832, #19090B 75%);
+}
+
+.project-content {
+  padding: 8px 20px 24px;
+}
+
+.project-type {
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.project-content h2 {
+  margin: 8px 0;
+  font-size: 1.6rem;
+}
+
+.project-content > p:not(.project-type) {
+  color: var(--muted);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.tech-tags span {
+  padding: 5px 10px;
+  color: var(--muted);
+  background: #202723;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.78rem;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.project-link:hover {
+  color: var(--green);
+}
+
+@media (max-width: 700px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-page {
+    padding-top: 48px;
+  }
+
+  .projects-intro h1 {
+    letter-spacing: -2px;
+  }
+}

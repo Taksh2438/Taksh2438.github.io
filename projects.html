@@ -4,29 +4,112 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080A0A">
-  <title>Projects | My Portfolio</title>
+  <meta name="description" content="Projects and experiments by Taksh Mehta.">
+  <title>Projects | Taksh Mehta</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="index.html">Taksh<span>.</span>Mehta</a>
+    <a class="logo" href="index.html">TAKSH<span>.</span>MEHTA</a>
     <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
     <nav class="site-nav">
       <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
+      <a href="projects.html" aria-current="page">Projects</a>
       <a href="about.html">About</a>
     </nav>
   </header>
 
-  <main id="main-content" class="section">
-    <p class="eyebrow">MY PORTFOLIO</p>
-    <h1>Projects</h1>
-    <p class="muted">This section is under construction. Check back soon.</p>
+  <main class="projects-page">
+    <section class="projects-intro">
+      <p class="eyebrow">THINGS I'VE BUILT</p>
+      <h1>Selected <span class="green-text">projects.</span></h1>
+      <p class="hero-description">
+        A collection of applications, experiments, and ideas
+        turned into working projects.
+      </p>
+    </section>
+
+    <section class="project-grid" aria-label="Project gallery">
+      <article class="project-card">
+        <div class="project-number">PROJECT / 01</div>
+        <div class="project-art art-green" aria-hidden="true">
+          <span>01</span>
+        </div>
+        <div class="project-content">
+          <p class="project-type">APPLICATION</p>
+          <h2>Habit Tracker</h2>
+          <p>
+            An application for tracking habits, monitoring progress,
+            and building consistent routines.
+          </p>
+          <div class="tech-tags">
+            <span>Flutter</span>
+            <span>Dart</span>
+          </div>
+          <a class="project-link"
+             href="https://github.com/Taksh2438"
+             target="_blank"
+             rel="noopener noreferrer">
+            View on GitHub ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-number">PROJECT / 02</div>
+        <div class="project-art art-blue" aria-hidden="true">
+          <span>02</span>
+        </div>
+        <div class="project-content">
+          <p class="project-type">EXPERIMENT</p>
+          <h2>Project Two</h2>
+          <p>
+            Replace this description with a real project,
+            what it does, and the problem it solves.
+          </p>
+          <div class="tech-tags">
+            <span>Technology</span>
+            <span>Experiment</span>
+          </div>
+          <a class="project-link"
+             href="https://github.com/Taksh2438"
+             target="_blank"
+             rel="noopener noreferrer">
+            View on GitHub ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-number">PROJECT / 03</div>
+        <div class="project-art art-red" aria-hidden="true">
+          <span>03</span>
+        </div>
+        <div class="project-content">
+          <p class="project-type">IN DEVELOPMENT</p>
+          <h2>Project Three</h2>
+          <p>
+            Showcase another application, engineering design,
+            research experiment, or technical project here.
+          </p>
+          <div class="tech-tags">
+            <span>Development</span>
+            <span>Research</span>
+          </div>
+          <a class="project-link"
+             href="https://github.com/Taksh2438"
+             target="_blank"
+             rel="noopener noreferrer">
+            View on GitHub ↗
+          </a>
+        </div>
+      </article>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year">2026</span> YOUR NAME</p>
+    <p>© <span id="year">2026</span> Taksh Mehta</p>
     <a href="https://github.com/Taksh2438">GitHub ↗</a>
   </footer>
 </body>
