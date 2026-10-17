@@ -210,3 +210,131 @@ a:focus-visible, button:focus-visible {
   from { transform: translateY(-8px) rotate(-5deg); }
   to { transform: translateY(12px) rotate(8deg); }
 }
+
+.hero-visual {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  right: 9%;
+  top: 130px;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.85;
+  animation: float 5s ease-in-out infinite alternate;
+}
+
+.orb-green {
+  background: radial-gradient(circle at 30% 25%, #9BFFD0, #16784F 65%, #07130D);
+  left: 0;
+  top: 20px;
+}
+
+.orb-red {
+  background: radial-gradient(circle at 30% 25%, #FFB0B6, #B82935 65%, #19080A);
+  right: 0;
+  top: 70px;
+  animation-delay: -2s;
+}
+
+.orb-blue {
+  background: radial-gradient(circle at 30% 25%, #B9D9FF, #1557B0 65%, #08101C);
+  left: 55px;
+  bottom: 0;
+  animation-delay: -1s;
+}
+
+@keyframes float {
+  from { transform: translateY(-8px) rotate(-5deg); }
+  to { transform: translateY(12px) rotate(8deg); }
+}
+
+.button {
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.text-link:hover {
+  color: var(--green);
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+
+  .site-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding-top: 12px;
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding-top: 75px;
+    min-height: 600px;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  .hero-visual {
+    top: auto;
+    bottom: 20px;
+    right: 5%;
+    transform: scale(0.7);
+    transform-origin: bottom right;
+    opacity: 0.7;
+  }
+
+  .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .site-footer {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

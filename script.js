@@ -5,10 +5,6 @@ if (menuToggle && siteNav) {
   menuToggle.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.setAttribute(
-      "aria-label",
-      isOpen ? "Close navigation" : "Toggle navigation"
-    );
     menuToggle.textContent = isOpen ? "✕" : "☰";
   });
 
@@ -16,7 +12,6 @@ if (menuToggle && siteNav) {
     link.addEventListener("click", () => {
       siteNav.classList.remove("open");
       menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Toggle navigation");
       menuToggle.textContent = "☰";
     });
   });
