@@ -1,12 +1,12 @@
 :root {
-  --bg: #080A0A;
-  --surface: #141918;
-  --green: #48D597;
-  --red: #FF6571;
-  --blue: #65A8FF;
-  --text: #F4F6F5;
-  --muted: #AAB4B0;
-  --border: #28312D;
+  --bg: #090D0C;
+  --surface: #121A17;
+  --green: #55E6A5;
+  --red: #FF737D;
+  --blue: #76B5FF;
+  --text: #F2F7F4;
+  --muted: #A3B2AA;
+  --border: #293831;
 }
 
 * {
@@ -474,5 +474,24 @@ a:focus-visible, button:focus-visible {
 
   .projects-intro h1 {
     letter-spacing: -2px;
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
