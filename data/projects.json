@@ -1,0 +1,67 @@
+[
+  {
+    "id": "habitlens",
+    "name": "HabitLens",
+    "category": "APP DEVELOPMENT",
+    "description": "A habit-tracking application with multiple habit types, custom icons, sorting, statistics, and light and dark themes.",
+    "technologies": ["Flutter", "Dart"],
+    "status": "In Progress",
+    "symbol": "H",
+    "featured": true,
+    "showOnHome": true,
+    "link": "",
+    "image": ""
+  },
+  {
+    "id": "line-following-robot",
+    "name": "Line-Following Robot",
+    "category": "ROBOTICS",
+    "description": "A line-following robot built for Track Trace 2.0, a university competition where our team achieved third place.",
+    "technologies": ["Arduino Nano", "IR Sensors", "Motor Driver"],
+    "status": "Completed",
+    "symbol": "R",
+    "featured": true,
+    "showOnHome": true,
+    "link": "",
+    "image": ""
+  },
+  {
+    "id": "solidworks-designs",
+    "name": "Mechanical CAD Designs",
+    "category": "MECHANICAL DESIGN",
+    "description": "A collection of 50+ SolidWorks models and assemblies, including mechanical components and multi-part designs.",
+    "technologies": ["SolidWorks", "3D CAD", "Assemblies"],
+    "status": "Ongoing",
+    "symbol": "3D",
+    "featured": true,
+    "showOnHome": true,
+    "link": "",
+    "image": ""
+  },
+  {
+    "id": "ibm-bob-hackathon",
+    "name": "Cybersecurity Complaint Triage",
+    "category": "HACKATHON",
+    "description": "A prototype concept for prioritizing cybersecurity complaints and filtering potentially fake or low-importance reports.",
+    "technologies": ["Cybersecurity", "Triage"],
+    "status": "Concept",
+    "symbol": "C",
+    "featured": false,
+    "showOnHome": false,
+    "link": "",
+    "image": ""
+  },
+  {
+    "id": "current-hackathon",
+    "name": "Current Hackathon Project",
+    "category": "HACKATHON",
+    "description": "A project currently in development during a hackathon. More details will be added as the work progresses.",
+    "technologies": ["In Development"],
+    "status": "Ongoing",
+    "symbol": "H",
+    "featured": true,
+    "showOnHome": true,
+    "link": "",
+    "image": ""
+  }
+]

@@ -1,0 +1,85 @@
+{
+  "name": "Taksh Mehta",
+  "location": "Bharuch, Gujarat, India",
+  "headline": "Mechanical Engineering Student | Aspiring Builder",
+  "intro": "I'm Taksh Mehta. I'm currently building HabitLens while exploring ideas in engineering and technology.",
+  "about": [
+    "I'm a Mechanical Engineering student at CHARUSAT who enjoys understanding how things work and turning ideas into practical projects.",
+    "I learn by experimenting, building, testing, and improving. I'm developing my skills in programming, mechanical design, and electronics.",
+    "My long-term ambition is to build a business around technology and engineering. For now, I'm focused on learning, creating, and gaining practical experience."
+  ],
+  "education": [
+    {
+      "degree": "B.Tech in Mechanical Engineering",
+      "institution": "Charotar University of Science and Technology (CHARUSAT)",
+      "level": "First year"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Programming",
+      "items": ["Python", "C++", "HTML", "Dart"]
+    },
+    {
+      "category": "App Development",
+      "items": ["Flutter"]
+    },
+    {
+      "category": "Mechanical Design",
+      "items": ["SolidWorks", "3D CAD", "Assemblies"]
+    },
+    {
+      "category": "Electronics and Tools",
+      "items": ["Arduino", "Git", "GitHub", "VS Code"]
+    }
+  ],
+  "interests": [
+    "Robotics",
+    "Artificial Intelligence",
+    "Automation",
+    "Mechanical Design",
+    "Machines"
+  ],
+  "achievements": [
+    {
+      "title": "Third Place — Track Trace 2.0",
+      "description": "Competed in a university line-following robot competition, contributing to robot design, testing, code checks, and assembly."
+    },
+    {
+      "title": "50+ SolidWorks Models",
+      "description": "Created more than 50 mechanical CAD models and assemblies through hands-on practice."
+    },
+    {
+      "title": "Hackathon Experience",
+      "description": "Explored a cybersecurity complaint-triage concept during the IBM Bob Hackathon."
+    }
+  ],
+  "workshops": [
+    {
+      "title": "Beyond The Blueprints: KTM 390 Engine Anatomy in Action",
+      "description": "Explored the anatomy and working of a KTM 390 engine."
+    },
+    {
+      "title": "Arduino Essentials: From Zero to Prototype",
+      "description": "Learned about Arduino boards, electronic components, and basic prototyping."
+    }
+  ],
+  "qualities": [
+    {
+      "title": "Curiosity",
+      "description": "I enjoy exploring how systems work and asking questions."
+    },
+    {
+      "title": "Persistence",
+      "description": "I test, troubleshoot, and keep improving when things fail."
+    },
+    {
+      "title": "Practical Thinking",
+      "description": "I value turning concepts into working designs and projects."
+    }
+  ],
+  "social": {
+    "github": "https://github.com/Taksh2438",
+    "linkedin": "https://www.linkedin.com/in/taksh-mehta-240308t/"
+  }
+}
