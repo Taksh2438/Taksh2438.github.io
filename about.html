@@ -3,31 +3,243 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080A0A">
-  <title>About | My Portfolio</title>
+  <meta name="theme-color" content="#090D0C">
+  <meta name="description" content="Learn about Taksh Mehta, a Mechanical Engineering student interested in robotics, coding, AI, and automation.">
+  <title>About | Taksh Mehta</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
+
 <body>
   <header class="site-header">
     <a class="logo" href="index.html">Taksh<span>.</span>Mehta</a>
-    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <button class="menu-toggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false">☰</button>
+
     <nav class="site-nav">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
+      <a href="about.html" aria-current="page">About</a>
     </nav>
   </header>
 
-  <main id="main-content" class="section">
-    <p class="eyebrow">MY PORTFOLIO</p>
-    <h1>About Me</h1>
-    <p class="muted">This section is under construction. Check back soon.</p>
+  <main id="main-content" class="about-page">
+
+    <!-- Introduction -->
+    <section class="about-intro" data-reveal>
+      <p class="eyebrow">BEHIND THE BUILDER</p>
+
+      <h1>
+        Curious by nature.
+        <span>Engineer in progress.</span>
+      </h1>
+
+      <p>
+        I'm Taksh Mehta, a first-year Mechanical Engineering student
+        at CHARUSAT. I'm interested in robotics, machines, coding,
+        artificial intelligence, and automation.
+      </p>
+    </section>
+
+    <!-- Background -->
+    <section class="about-section" data-reveal>
+      <p class="eyebrow">MY STORY</p>
+      <h2>More than just theory.</h2>
+
+      <p>
+        I enjoy understanding how things work and turning ideas into
+        practical projects. Whether I'm building an app, designing a
+        mechanical assembly, or experimenting with electronics, I
+        prefer learning by doing, testing, and improving.
+      </p>
+
+      <p>
+        I'm still at the beginning of my engineering journey, and my
+        focus is on building strong fundamentals, developing useful
+        skills, and working on projects that challenge me.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section class="about-section" data-reveal>
+      <p class="eyebrow">ACADEMIC BACKGROUND</p>
+      <h2>Education</h2>
+
+      <div class="about-card">
+        <h3>B.Tech — Mechanical Engineering</h3>
+        <p>Charotar University of Science and Technology (CHARUSAT)</p>
+        <p class="muted">First year · Undergraduate</p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="about-section" data-reveal>
+      <p class="eyebrow">WHAT I USE</p>
+      <h2>Technical Skills</h2>
+
+      <div class="skills-grid">
+        <div class="about-card">
+          <h3>Programming</h3>
+          <p>Python · C++ · HTML · Dart</p>
+          <p class="muted">Building programming fundamentals</p>
+        </div>
+
+        <div class="about-card">
+          <h3>App Development</h3>
+          <p>Flutter · HabitLens</p>
+          <p class="muted">Developing a habit-tracking application</p>
+        </div>
+
+        <div class="about-card">
+          <h3>Mechanical Design</h3>
+          <p>SolidWorks · 3D CAD · Assemblies</p>
+          <p class="muted">50+ models and assemblies created</p>
+        </div>
+
+        <div class="about-card">
+          <h3>Electronics & Tools</h3>
+          <p>Arduino · Git · GitHub · VS Code</p>
+          <p class="muted">Prototyping and development tools</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="about-section" data-reveal>
+      <p class="eyebrow">MILESTONES</p>
+      <h2>Achievements</h2>
+
+      <div class="about-card">
+        <h3>Third Place — Track Trace 2.0</h3>
+        <p>
+          Competed in a university line-following robot competition.
+          Contributed to robot design, testing, code checks, and assembly.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>50+ SolidWorks Models</h3>
+        <p>
+          Practised mechanical design by creating 3D models and assemblies,
+          including individual components and mechanical connections.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>Hackathon Experience</h3>
+        <p>
+          Explored a cybersecurity complaint-triage concept during the
+          IBM Bob Hackathon and continued participating in hackathon projects.
+        </p>
+      </div>
+    </section>
+
+    <!-- Workshops -->
+    <section class="about-section" data-reveal>
+      <p class="eyebrow">HANDS-ON LEARNING</p>
+      <h2>Workshops</h2>
+
+      <div class="about-card">
+        <h3>Beyond The Blueprints</h3>
+        <p>
+          Explored the anatomy and working of a KTM 390 engine through
+          a hands-on engine demonstration.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>Arduino Essentials: From Zero to Prototype</h3>
+        <p>
+          Learned about Arduino boards, electronic components,
+          and basic prototyping.
+        </p>
+      </div>
+    </section>
+
+    <!-- Current focus -->
+    <section class="about-section" data-reveal>
+      <p class="eyebrow">CURRENT DIRECTION</p>
+      <h2>What I'm building toward</h2>
+
+      <p>
+        I'm currently developing HabitLens while strengthening my
+        programming and engineering skills. I'm especially interested
+        in robotics, automation, intelligent systems, and mechanical design.
+      </p>
+
+      <p>
+        My long-term ambition is to build a business around technology
+        and engineering. For now, I'm focused on learning, creating,
+        and gaining practical experience one project at a time.
+      </p>
+    </section>
+
+    <!-- Personal qualities -->
+    <section class="about-section" data-reveal>
+      <p class="eyebrow">MY APPROACH</p>
+      <h2>How I work</h2>
+
+      <div class="skills-grid">
+        <div class="about-card">
+          <h3>Curiosity</h3>
+          <p>I like exploring how systems work and asking questions.</p>
+        </div>
+
+        <div class="about-card">
+          <h3>Persistence</h3>
+          <p>I test, troubleshoot, and keep improving when things fail.</p>
+        </div>
+
+        <div class="about-card">
+          <h3>Practical Thinking</h3>
+          <p>I value turning concepts into working designs and projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect -->
+    <section class="about-section" data-reveal>
+      <p class="eyebrow">LET'S CONNECT</p>
+      <h2>Good ideas grow through collaboration.</h2>
+
+      <p>
+        I'm open to connecting with people interested in engineering,
+        robotics, software, and building useful things.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-primary"
+          href="https://www.linkedin.com/in/taksh-mehta-240308t/"
+          target="_blank"
+          rel="noopener noreferrer">
+          Connect on LinkedIn ↗
+        </a>
+
+        <a class="button button-secondary"
+          href="https://github.com/Taksh2438"
+          target="_blank"
+          rel="noopener noreferrer">
+          Explore GitHub ↗
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     <p>© <span id="year">2026</span> Taksh Mehta</p>
-    <a href="https://github.com/Taksh2438">GitHub ↗</a>
+
+    <div>
+      <a href="https://github.com/Taksh2438"
+        target="_blank"
+        rel="noopener noreferrer">GitHub ↗</a>
+
+      <a href="https://www.linkedin.com/in/taksh-mehta-240308t/"
+        target="_blank"
+        rel="noopener noreferrer">LinkedIn ↗</a>
+    </div>
   </footer>
 </body>
 </html>
