@@ -954,3 +954,225 @@ button:focus-visible {
     transform: none;
   }
 }
+
+/* Individual project detail pages */
+.project-detail-page {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-top: 56px;
+  padding-bottom: 88px;
+}
+
+.detail-hero {
+  padding: 36px 0 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 38px;
+  color: var(--green);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--text);
+}
+
+.detail-hero h1 {
+  max-width: 850px;
+  margin: 12px 0 18px;
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+
+.detail-lead {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 1.12rem;
+  line-height: 1.8;
+}
+
+.project-status {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--green);
+  font-size: 0.85rem;
+}
+
+.detail-hero .tech-tags {
+  margin-top: 24px;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 44px;
+  align-items: start;
+  padding-top: 42px;
+}
+
+.detail-main {
+  min-width: 0;
+}
+
+.detail-section {
+  margin-bottom: 44px;
+}
+
+.detail-section h2,
+.detail-sidebar h2 {
+  margin: 0 0 18px;
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+}
+
+.detail-section p,
+.detail-list {
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.detail-list {
+  padding-left: 22px;
+}
+
+.detail-list li {
+  margin-bottom: 10px;
+}
+
+.detail-sidebar {
+  position: sticky;
+  top: 100px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.detail-sidebar p {
+  margin: 18px 0;
+  color: var(--muted);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.detail-sidebar strong {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+
+.detail-sidebar .tech-tags {
+  margin-top: 12px;
+}
+
+.detail-links {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.detail-links .button {
+  text-align: center;
+}
+
+.project-detail-page .tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-detail-page .tech-tag {
+  display: inline-block;
+  padding: 7px 11px;
+  color: var(--text);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.82rem;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.gallery-item {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.gallery-item img,
+.gallery-item video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #050807;
+}
+
+.gallery-item figcaption {
+  padding: 12px 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.detail-error {
+  padding: 60px 0;
+}
+
+.detail-error p {
+  color: var(--muted);
+}
+
+.detail-error a {
+  color: var(--green);
+}
+
+@media (max-width: 800px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .detail-sidebar {
+    position: static;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 540px) {
+  .project-detail-page {
+    width: calc(100% - 28px);
+    padding-top: 28px;
+  }
+
+  .detail-hero {
+    padding-top: 20px;
+    padding-bottom: 32px;
+  }
+
+  .back-link {
+    margin-bottom: 28px;
+  }
+
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-sidebar {
+    padding: 18px;
+  }
+}
