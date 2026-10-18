@@ -1,0 +1,20 @@
+{
+  "id": "current-hackathon",
+  "name": "Current Hackathon Project",
+  "category": "Hackathon",
+  "status": "Ongoing",
+  "shortDescription": "A project currently being developed as part of a hackathon.",
+  "overview": "Details will be added as the project develops.",
+  "objectives": [],
+  "technologies": [],
+  "role": [],
+  "features": [],
+  "challenges": [],
+  "learnings": [],
+  "results": "Currently in development.",
+  "links": {
+    "repository": "",
+    "demo": ""
+  },
+  "media": []
+}

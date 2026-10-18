@@ -1,0 +1,34 @@
+{
+  "id": "solidworks-designs",
+  "name": "Mechanical CAD Designs",
+  "category": "Mechanical Design",
+  "status": "Ongoing",
+  "shortDescription": "A collection of 50+ SolidWorks models and assemblies created through hands-on practice.",
+  "overview": "A growing portfolio of mechanical components, multi-part assemblies, and designs created from engineering drawings and independent practice.",
+  "objectives": [
+    "Improve 3D modelling skills.",
+    "Understand component relationships and assemblies.",
+    "Develop the ability to interpret engineering drawings."
+  ],
+  "technologies": [
+    "SolidWorks",
+    "3D CAD",
+    "Mechanical Assemblies"
+  ],
+  "role": [
+    "Created and assembled the models independently as practice projects."
+  ],
+  "features": [
+    "Individual mechanical components",
+    "Wooden toy airplane assembly",
+    "Nut-and-bolt assembly"
+  ],
+  "challenges": [],
+  "learnings": [],
+  "results": "More than 50 CAD models and assemblies created.",
+  "links": {
+    "repository": "",
+    "demo": ""
+  },
+  "media": []
+}

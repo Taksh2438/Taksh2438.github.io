@@ -1,0 +1,27 @@
+{
+  "id": "ibm-bob-hackathon",
+  "name": "Cybersecurity Complaint Triage",
+  "category": "Hackathon",
+  "status": "Concept",
+  "shortDescription": "A concept for prioritising cybersecurity complaints and identifying potentially fake or low-priority reports.",
+  "overview": "A hackathon concept focused on helping teams organise incoming cybersecurity complaints so that important reports can receive attention first.",
+  "objectives": [
+    "Prioritise complaints based on importance.",
+    "Explore ways to flag potentially fake or irrelevant reports.",
+    "Improve the organisation of incoming reports."
+  ],
+  "technologies": [
+    "Cybersecurity",
+    "Complaint Triage"
+  ],
+  "role": [],
+  "features": [],
+  "challenges": [],
+  "learnings": [],
+  "results": "Concept developed during the IBM Bob Hackathon.",
+  "links": {
+    "repository": "",
+    "demo": ""
+  },
+  "media": []
+}

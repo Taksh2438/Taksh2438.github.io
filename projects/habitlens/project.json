@@ -1,0 +1,32 @@
+{
+  "id": "habitlens",
+  "name": "HabitLens",
+  "category": "App Development",
+  "status": "In Progress",
+  "shortDescription": "A habit-tracking app with flexible habit types, customisation, and detailed progress statistics.",
+  "overview": "HabitLens is a habit-tracking application designed to help users record habits and understand their progress over time.",
+  "objectives": [
+    "Support different types of habits.",
+    "Make habit tracking simple and customisable.",
+    "Present useful progress statistics."
+  ],
+  "technologies": ["Flutter", "Dart"],
+  "role": [
+    "Designed and developed the application as a solo project."
+  ],
+  "features": [
+    "Checkbox, numerical-goal, counter, and rating-based habits",
+    "Custom habit names and icons",
+    "Habit sorting",
+    "Daily, weekly, and monthly statistics",
+    "Light and dark themes"
+  ],
+  "challenges": [],
+  "learnings": [],
+  "results": "The project is under development.",
+  "links": {
+    "repository": "https://github.com/Taksh2438/HabitLens",
+    "demo": ""
+  },
+  "media": []
+}

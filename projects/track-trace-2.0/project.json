@@ -1,0 +1,33 @@
+{
+  "id": "track-trace-2.0",
+  "name": "Track Trace 2.0",
+  "category": "Robotics",
+  "status": "Completed",
+  "shortDescription": "A line-following robot built for Track Trace 2.0, where our team achieved third place.",
+  "overview": "A robotics competition project involving an Arduino-based robot designed to follow a track using infrared sensors.",
+  "objectives": [
+    "Build a working line-following robot.",
+    "Integrate sensors, motor control, and the controller.",
+    "Test and improve the robot's performance on the track."
+  ],
+  "technologies": [
+    "Arduino Nano",
+    "Infrared Sensors",
+    "Motor Driver",
+    "PCB"
+  ],
+  "role": [
+    "Tested the robot.",
+    "Checked the code for errors.",
+    "Contributed to the robot's design and assembly."
+  ],
+  "features": [],
+  "challenges": [],
+  "learnings": [],
+  "results": "Third place in the Track Trace 2.0 university competition in 2026.",
+  "links": {
+    "repository": "",
+    "demo": ""
+  },
+  "media": []
+}
