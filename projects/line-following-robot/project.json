@@ -1,6 +1,6 @@
 {
-  "id": "track-trace-2.0",
-  "name": "Track Trace 2.0",
+  "id": "line-following-robot",
+  "name": "Line-Following Robot",
   "category": "Robotics",
   "status": "Completed",
   "shortDescription": "A line-following robot built for Track Trace 2.0, where our team achieved third place.",
