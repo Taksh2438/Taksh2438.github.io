@@ -47,12 +47,39 @@ async function loadProjectPage() {
     }
   };
 
+  const safeMediaSource = (value = "") => {
+    const source = String(value).trim();
+
+    try {
+      const url = new URL(source);
+
+      if (["https:", "http:"].includes(url.protocol)) {
+        return url.href;
+      }
+
+      return "";
+    } catch {
+      const isLocalPath =
+        /^[a-zA-Z0-9_./-]+$/.test(source) &&
+        !source.split("/").includes("..") &&
+        !source.startsWith("/");
+
+      return isLocalPath ? source : "";
+    }
+  };
+
   const renderMedia = (media = []) => {
     if (!Array.isArray(media) || media.length === 0) return "";
 
-    const validMedia = media.filter((item) =>
-      item && ["image", "video"].includes(item.type) && item.src
-    );
+    const validMedia = media
+      .filter((item) =>
+        item && ["image", "video"].includes(item.type)
+      )
+      .map((item) => ({
+        ...item,
+        src: safeMediaSource(item.src)
+      }))
+      .filter((item) => item.src);
 
     if (validMedia.length === 0) return "";
 
@@ -67,7 +94,7 @@ async function loadProjectPage() {
             if (item.type === "video") {
               return `
                 <figure class="gallery-item">
-                  <video controls preload="metadata">
+                  <video controls preload="metadata" playsinline>
                     <source src="${src}">
                     Your browser does not support video playback.
                   </video>

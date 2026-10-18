@@ -1418,3 +1418,40 @@ button:focus-visible {
     flex-wrap: wrap;
   }
 }
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.gallery-item {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.gallery-item img,
+.gallery-item video {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  background: #050807;
+}
+
+.gallery-item figcaption {
+  padding: 12px 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .project-gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
