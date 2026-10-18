@@ -1360,3 +1360,61 @@ button:focus-visible {
 #social .hero-actions {
   margin-top: 0;
 }
+
+/* Data-driven Home page */
+#home-content {
+  min-width: 0;
+}
+
+#home-content .hero-description {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+#home-content .featured-grid {
+  align-items: stretch;
+}
+
+#home-content .featured-card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+#home-content .featured-card .project-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
+  object-fit: cover;
+}
+
+#home-content .featured-card .project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  height: 100%;
+}
+
+#home-content .featured-card .project-card-bottom {
+  margin-top: auto;
+}
+
+#home-content .quick-facts {
+  gap: 24px;
+}
+
+@media (max-width: 640px) {
+  #home-content .hero {
+    gap: 32px;
+  }
+
+  #home-content .hero-visual {
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  #home-content .quick-facts {
+    flex-wrap: wrap;
+  }
+}
