@@ -73,11 +73,15 @@ async function loadProjectPage() {
 
     const validMedia = media
       .filter((item) =>
-        item && ["image", "video"].includes(item.type)
+        item &&
+        ["image", "video"].includes(item.type) &&
+        typeof item.src === "string"
       )
       .map((item) => ({
         ...item,
-        src: safeMediaSource(item.src)
+        src: typeof safeMediaSource === "function"
+          ? safeMediaSource(item.src)
+          : item.src.trim()
       }))
       .filter((item) => item.src);
 
@@ -86,31 +90,56 @@ async function loadProjectPage() {
     return `
       <section class="detail-section">
         <h2>Gallery</h2>
-        <div class="project-gallery">
-          ${validMedia.map((item) => {
-            const src = escapeHTML(item.src);
-            const caption = escapeHTML(item.caption || "");
 
-            if (item.type === "video") {
-              return `
-                <figure class="gallery-item">
-                  <video controls preload="metadata" playsinline>
-                    <source src="${src}">
-                    Your browser does not support video playback.
-                  </video>
-                  ${caption ? `<figcaption>${caption}</figcaption>` : ""}
-                </figure>
-              `;
-            }
+        <div class="project-gallery-carousel">
+          <button
+            type="button"
+            class="gallery-arrow gallery-prev"
+            aria-label="Previous media"
+            data-gallery-prev>
+            &#8592;
+          </button>
 
-            return `
-              <figure class="gallery-item">
-                <img src="${src}" alt="${caption || "Project photo"}"
-                     loading="lazy">
-                ${caption ? `<figcaption>${caption}</figcaption>` : ""}
-              </figure>
-            `;
-          }).join("")}
+          <div class="gallery-viewport" tabindex="0"
+              aria-label="Project photos and videos">
+            <div class="gallery-track">
+              ${validMedia.map((item, index) => {
+                const src = escapeHTML(item.src);
+                const caption = escapeHTML(item.caption || "");
+                const label = item.type === "video" ? "VIDEO" : "PHOTO";
+
+                const content = item.type === "video"
+                  ? `<video controls preload="metadata" playsinline>
+                      <source src="${src}">
+                      Your browser does not support video playback.
+                    </video>`
+                  : `<img src="${src}"
+                          alt="${caption || "Project photo"}"
+                          loading="lazy">`;
+
+                return `
+                  <figure class="gallery-slide">
+                    <span class="media-type-label">${label}</span>
+                    ${content}
+                    ${caption
+                      ? `<figcaption>${caption}</figcaption>`
+                      : ""}
+                    <span class="gallery-counter">
+                      ${index + 1} / ${validMedia.length}
+                    </span>
+                  </figure>
+                `;
+              }).join("")}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="gallery-arrow gallery-next"
+            aria-label="Next media"
+            data-gallery-next>
+            &#8594;
+          </button>
         </div>
       </section>
     `;
@@ -203,6 +232,30 @@ async function loadProjectPage() {
         </aside>
       </div>
     `;
+
+    root.querySelectorAll(".project-gallery-carousel").forEach((carousel) => {
+      const viewport = carousel.querySelector(".gallery-viewport");
+      const previous = carousel.querySelector("[data-gallery-prev]");
+      const next = carousel.querySelector("[data-gallery-next]");
+
+      if (!viewport || !previous || !next) return;
+
+      const move = (direction) => {
+        const slide = viewport.querySelector(".gallery-slide");
+        if (!slide) return;
+
+        const gap = 0;
+        const distance = slide.getBoundingClientRect().width + gap;
+
+        viewport.scrollBy({
+          left: direction * distance,
+          behavior: "smooth"
+        });
+      };
+
+      previous.addEventListener("click", () => move(-1));
+      next.addEventListener("click", () => move(1));
+    });
   } catch (error) {
     console.error("Project page error:", error);
     root.innerHTML = `

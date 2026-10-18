@@ -1455,3 +1455,133 @@ button:focus-visible {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Horizontal project media carousel */
+.project-gallery-carousel {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 42px;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.gallery-viewport {
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--green) var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #050807;
+}
+
+.gallery-track {
+  display: flex;
+  width: 100%;
+}
+
+.gallery-slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 42px 12px 48px;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+}
+
+.gallery-slide img,
+.gallery-slide video {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 45vw, 460px);
+  object-fit: contain;
+  background: #050807;
+  border-radius: 8px;
+}
+
+.gallery-slide figcaption {
+  padding: 14px 4px 0;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.media-type-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
+  padding: 5px 9px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.gallery-counter {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.gallery-arrow {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface-raised);
+  color: var(--green);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.gallery-arrow:hover {
+  border-color: var(--green);
+  background: var(--surface);
+}
+
+.gallery-arrow:focus-visible,
+.gallery-viewport:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  .project-gallery-carousel {
+    grid-template-columns: 32px minmax(0, 1fr) 32px;
+    gap: 5px;
+  }
+
+  .gallery-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .gallery-slide {
+    padding-inline: 8px;
+  }
+
+  .gallery-slide img,
+  .gallery-slide video {
+    height: 240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-arrow {
+    transition: none;
+  }
+}
