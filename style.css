@@ -1845,3 +1845,13 @@ button:focus-visible {
   font-size: 0.9rem;
   text-align: center;
 }
+
+/* Center homepage stats and achievements */
+.hero-stats {
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-stats > * {
+  text-align: center;
+}
