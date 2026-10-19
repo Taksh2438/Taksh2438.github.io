@@ -1861,3 +1861,15 @@ button:focus-visible {
 .hero-stats * {
   text-align: center;
 }
+
+/* Center homepage quick facts */
+.quick-facts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.quick-facts > div {
+  text-align: center;
+}
