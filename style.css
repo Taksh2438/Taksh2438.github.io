@@ -2088,3 +2088,23 @@ button:focus-visible {
         grid-template-columns: 1fr;
     }
 }
+
+/* Center cards when there are fewer than a full row. */
+@media (min-width: 901px) {
+  #home-content .featured-track:not(:has(.featured-card:nth-child(3))) {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 900px) {
+  #home-content .featured-track:not(:has(.featured-card:nth-child(2))) {
+    justify-content: center;
+  }
+}
+
+.media-error {
+  margin: 12px 0;
+  color: var(--red);
+  font-size: 0.9rem;
+  text-align: center;
+}

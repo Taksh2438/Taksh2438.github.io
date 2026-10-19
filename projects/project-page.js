@@ -111,7 +111,7 @@ async function loadProjectPage() {
 
                   const content = item.type === "video"
                     ? `<video controls preload="metadata" playsinline>
-                        <source src="${src}">
+                        <source src="${src}" type="video/mp4">
                         Your browser does not support video playback.
                       </video>`
                     : `<img src="${src}"
@@ -238,6 +238,18 @@ async function loadProjectPage() {
         </aside>
       </div>
     `;
+
+    root.querySelectorAll(".gallery-slide video").forEach((video) => {
+      video.addEventListener("error", () => {
+        const slide = video.closest(".gallery-slide");
+        if (!slide || slide.querySelector(".media-error")) return;
+
+        const message = document.createElement("p");
+        message.className = "media-error";
+        message.textContent = "Video unavailable. Check that the MP4 file exists and uses a browser-supported codec.";
+        video.insertAdjacentElement("afterend", message);
+      });
+    });
 
     root.querySelectorAll(".project-gallery-carousel").forEach((carousel) => {
       const viewport = carousel.querySelector(".gallery-viewport");
