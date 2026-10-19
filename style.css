@@ -1873,3 +1873,23 @@ button:focus-visible {
 .quick-facts > div {
   text-align: center;
 }
+
+/* Subtle floating animation */
+.hero-visual {
+  animation: hero-float 5s ease-in-out infinite;
+}
+
+@keyframes hero-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual {
+    animation: none;
+  }
+}
