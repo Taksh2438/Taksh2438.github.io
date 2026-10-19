@@ -46,24 +46,24 @@
           "caption": "Video of the round 1"
         },
         {
-          "type": "video",
-          "src": "media/round-2-clip.mp4",
-          "caption": "Video of the round 2"
-        },
-        {
-          "type": "video",
-          "src": "media/final-round-clip.mp4",
-          "caption": "Video of the final round"
-        },
-        {
           "type": "image",
           "src": "media/round-2-track.jpg",
           "caption": "Track of second round"
         },
         {
+          "type": "video",
+          "src": "media/round-2-clip.mp4",
+          "caption": "Video of the round 2"
+        },
+        {
           "type": "image",
           "src": "media/final-round-track.jpg",
           "caption": "Track of final round"
+        },
+        {
+          "type": "video",
+          "src": "media/final-round-clip.mp4",
+          "caption": "Video of the final round"
         }
       ]
     },

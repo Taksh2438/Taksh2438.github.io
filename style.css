@@ -1979,7 +1979,7 @@ button:focus-visible {
 
 @media (max-width: 560px) {
   .featured-section {
-    margin: 44px 0;
+    margin: 44px auto;
   }
 
   .featured-section .section-heading {
