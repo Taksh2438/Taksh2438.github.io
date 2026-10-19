@@ -5,13 +5,30 @@ async function loadHomePage() {
   if (!root) return;
 
   const escapeHTML = (value = "") =>
-    String(value).replace(/[&<>"']/g, (character) => ({
+    String(value).replace(/[&<>"']/g, (char) => ({
       "&": "&amp;",
       "<": "&lt;",
       ">": "&gt;",
       '"': "&quot;",
       "'": "&#39;"
-    })[character]);
+    })[char]);
+
+  const safeImageSource = (value = "") => {
+    const source = String(value).trim();
+
+    try {
+      const url = new URL(source);
+      return ["https:", "http:"].includes(url.protocol)
+        ? url.href
+        : "";
+    } catch {
+      return /^[a-zA-Z0-9_./-]+$/.test(source) &&
+        !source.split("/").includes("..") &&
+        !source.startsWith("/")
+        ? source
+        : "";
+    }
+  };
 
   try {
     const [profileResponse, projectsResponse] = await Promise.all([
@@ -20,38 +37,42 @@ async function loadHomePage() {
     ]);
 
     if (!profileResponse.ok || !projectsResponse.ok) {
-      throw new Error("Could not load profile or project data.");
+      throw new Error("Could not load portfolio data.");
     }
 
     const profile = await profileResponse.json();
     const projects = await projectsResponse.json();
 
     if (!Array.isArray(projects)) {
-      throw new Error("Project data must be a JSON array.");
+      throw new Error("Project data must be an array.");
     }
 
-    const featuredProjects = projects.filter(
-      (project) => project.featured === true && project.showOnHome === true
+    const activeStatuses = [
+      "in progress",
+      "ongoing",
+      "currently working"
+    ];
+
+    const activeProjects = projects.filter((project) =>
+      project.featured === true &&
+      project.showOnHome === true &&
+      activeStatuses.includes(
+        String(project.status || "").trim().toLowerCase()
+      )
     );
 
-    const projectCards = featuredProjects.map((project) => {
-      const image = typeof project.image === "string"
-        ? project.image.trim()
-        : "";
+    const cards = activeProjects.map((project) => {
+      const image = safeImageSource(project.image || "");
 
-      const safeImage = /^(https?:\/\/|[a-zA-Z0-9_./-]+$)/.test(image)
-        ? image
-        : "";
-
-      const artwork = safeImage
-        ? `<img src="${escapeHTML(safeImage)}"
+      const artwork = image
+        ? `<img src="${escapeHTML(image)}"
                 alt="${escapeHTML(project.name)} preview"
                 loading="lazy">`
         : `<span class="project-symbol" aria-hidden="true">
              ${escapeHTML(project.symbol || "P")}
            </span>`;
 
-      const technologies = Array.isArray(project.technologies)
+      const tags = Array.isArray(project.technologies)
         ? project.technologies.slice(0, 3).map((technology) =>
             `<span class="tech-tag">${escapeHTML(technology)}</span>`
           ).join("")
@@ -59,16 +80,20 @@ async function loadHomePage() {
 
       return `
         <a class="featured-card project-card-link"
-           href="projects/${escapeHTML(project.id)}/">
+           href="projects/${encodeURIComponent(project.id)}/">
           <div class="project-art">${artwork}</div>
           <div class="project-content">
-            <p class="eyebrow">${escapeHTML(project.category || "PROJECT")}</p>
-            <h3>${escapeHTML(project.name)}</h3>
-            <p>${escapeHTML(project.description || "")}</p>
-            <div class="tech-tags">${technologies}</div>
+            <p class="eyebrow">
+              ${escapeHTML(project.category || "PROJECT")}
+            </p>
+            <h3>${escapeHTML(project.name || "Untitled Project")}</h3>
+            <p class="project-description">
+              ${escapeHTML(project.description || "")}
+            </p>
+            <div class="tech-tags">${tags}</div>
             <div class="project-card-bottom">
               <span class="project-status">
-                ${escapeHTML(project.status || "In Progress")}
+                ${escapeHTML(project.status)}
               </span>
               <span class="project-link">Explore project ↗</span>
             </div>
@@ -93,7 +118,9 @@ async function loadHomePage() {
               About Me
             </a>
           </div>
-          <p class="about-location">${escapeHTML(profile.location || "")}</p>
+          <p class="about-location">
+            ${escapeHTML(profile.location || "")}
+          </p>
         </div>
 
         <div class="hero-visual" aria-label="Engineering-inspired visual">
@@ -107,31 +134,46 @@ async function loadHomePage() {
       </section>
 
       <section class="quick-facts">
-        <div>
-          <strong>50+</strong>
-          <span>CAD Models</span>
-        </div>
-        <div>
-          <strong>3rd</strong>
-          <span>Robot Competition</span>
-        </div>
-        <div>
-          <strong>01</strong>
-          <span>App in Development</span>
-        </div>
+        <div><strong>50+</strong><span>CAD Models</span></div>
+        <div><strong>3rd</strong><span>Robot Competition</span></div>
+        <div><strong>01</strong><span>App in Development</span></div>
       </section>
 
       <section class="featured-section">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">SELECTED WORK</p>
+            <p class="eyebrow">CURRENTLY IN DEVELOPMENT</p>
             <h2>Projects I'm Building</h2>
           </div>
-          <a class="text-link" href="projects.html">All projects ↗</a>
+          <div class="carousel-controls">
+            <button class="carousel-arrow" type="button"
+              data-project-prev aria-label="Previous projects">
+              &#8592;
+            </button>
+            <button class="carousel-arrow" type="button"
+              data-project-next aria-label="Next projects">
+              &#8594;
+            </button>
+          </div>
         </div>
 
-        <div class="featured-grid">
-          ${projectCards || "<p>Projects will appear here soon.</p>"}
+        ${
+          activeProjects.length
+            ? `<div class="featured-carousel">
+                 <div class="featured-track" id="featured-track"
+                   tabindex="0" aria-label="Current projects">
+                   ${cards}
+                 </div>
+               </div>`
+            : `<p class="empty-projects">
+                 No active projects selected yet. Update the project
+                 settings in data/projects.json.
+               </p>`
+        }
+
+        <div class="carousel-footer">
+          <span>${activeProjects.length} active project(s)</span>
+          <a class="text-link" href="projects.html">View all projects ↗</a>
         </div>
       </section>
 
@@ -143,11 +185,43 @@ async function loadHomePage() {
           into practical projects across software, electronics, and
           mechanical design.
         </p>
-        <a class="text-link" href="about.html">More about my journey ↗</a>
+        <a class="text-link" href="about.html">
+          More about my journey ↗
+        </a>
       </section>
     `;
+
+    const track = root.querySelector("#featured-track");
+    const previous = root.querySelector("[data-project-prev]");
+    const next = root.querySelector("[data-project-next]");
+
+    if (track && previous && next) {
+      const updateButtons = () => {
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        previous.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft >= maxScroll - 2;
+      };
+
+      const move = (direction) => {
+        const card = track.querySelector(".featured-card");
+        if (!card) return;
+
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+
+        track.scrollBy({
+          left: direction * (card.getBoundingClientRect().width + gap),
+          behavior: "smooth"
+        });
+      };
+
+      previous.addEventListener("click", () => move(-1));
+      next.addEventListener("click", () => move(1));
+      track.addEventListener("scroll", updateButtons, { passive: true });
+      window.addEventListener("resize", updateButtons);
+      updateButtons();
+    }
   } catch (error) {
-    console.error("Home page error:", error);
+    console.error("Homepage error:", error);
     root.innerHTML = `
       <section class="detail-error">
         <h1>Portfolio unavailable</h1>

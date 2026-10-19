@@ -2,6 +2,8 @@
   "id": "solidworks-designs",
   "name": "Mechanical CAD Designs",
   "category": "Mechanical Design",
+  "featured": "true",
+  "showOnHome": "false",
   "status": "Ongoing",
   "shortDescription": "A collection of 50+ SolidWorks models and assemblies created through hands-on practice.",
   "overview": "A growing portfolio of mechanical components, multi-part assemblies, and designs created from engineering drawings and independent practice.",

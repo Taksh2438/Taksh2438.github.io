@@ -2,7 +2,9 @@
   "id": "ibm-bob-hackathon",
   "name": "Cybersecurity Complaint Triage",
   "category": "Hackathon",
-  "status": "Concept",
+  "featured": "true",
+  "showOnHome": "false",
+  "status": "Completed",
   "shortDescription": "A concept for prioritising cybersecurity complaints and identifying potentially fake or low-priority reports.",
   "overview": "A hackathon concept focused on helping teams organise incoming cybersecurity complaints so that important reports can receive attention first.",
   "objectives": [

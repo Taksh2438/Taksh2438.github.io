@@ -2,6 +2,8 @@
   "id": "habitlens",
   "name": "HabitLens",
   "category": "App Development",
+  "featured": "true",
+  "showOnHome": "true",
   "status": "In Progress",
   "shortDescription": "A habit-tracking app with flexible habit types, customisation, and detailed progress statistics.",
   "overview": "HabitLens is a habit-tracking application designed to help users record habits and understand their progress over time.",
