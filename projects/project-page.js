@@ -68,81 +68,82 @@ async function loadProjectPage() {
     }
   };
 
-  const renderMedia = (media = []) => {
-    if (!Array.isArray(media) || media.length === 0) return "";
+  const renderGalleryGroups = (groups = []) => {
+    if (!Array.isArray(groups) || groups.length === 0) return "";
 
-    const validMedia = media
-      .filter((item) =>
-        item &&
-        ["image", "video"].includes(item.type) &&
-        typeof item.src === "string"
-      )
-      .map((item) => ({
-        ...item,
-        src: typeof safeMediaSource === "function"
-          ? safeMediaSource(item.src)
-          : item.src.trim()
-      }))
-      .filter((item) => item.src);
+    return groups.map((group) => {
+      if (!group || !Array.isArray(group.media)) return "";
 
-    if (validMedia.length === 0) return "";
+      const validMedia = group.media
+        .filter((item) =>
+          item &&
+          ["image", "video"].includes(item.type) &&
+          typeof item.src === "string"
+        )
+        .map((item) => ({
+          ...item,
+          src: safeMediaSource(item.src)
+        }))
+        .filter((item) => item.src);
 
-    return `
-      <section class="detail-section">
-        <h2>Gallery</h2>
+      if (validMedia.length === 0) return "";
 
-        <div class="project-gallery-carousel">
-          <button
-            type="button"
-            class="gallery-arrow gallery-prev"
-            aria-label="Previous media"
-            data-gallery-prev>
-            &#8592;
-          </button>
+      return `
+        <section class="detail-section gallery-group">
+          <h2>${escapeHTML(group.title || "Gallery")}</h2>
 
-          <div class="gallery-viewport" tabindex="0"
-              aria-label="Project photos and videos">
-            <div class="gallery-track">
-              ${validMedia.map((item, index) => {
-                const src = escapeHTML(item.src);
-                const caption = escapeHTML(item.caption || "");
-                const label = item.type === "video" ? "VIDEO" : "PHOTO";
+          <div class="project-gallery-carousel">
+            <button type="button"
+                    class="gallery-arrow gallery-prev"
+                    aria-label="Previous media"
+                    data-gallery-prev>
+              &#8592;
+            </button>
 
-                const content = item.type === "video"
-                  ? `<video controls preload="metadata" playsinline>
-                      <source src="${src}">
-                      Your browser does not support video playback.
-                    </video>`
-                  : `<img src="${src}"
-                          alt="${caption || "Project photo"}"
-                          loading="lazy">`;
+            <div class="gallery-viewport"
+                tabindex="0"
+                aria-label="${escapeHTML(group.title || "Project gallery")}">
+              <div class="gallery-track">
+                ${validMedia.map((item, index) => {
+                  const src = escapeHTML(item.src);
+                  const caption = escapeHTML(item.caption || "");
+                  const label = item.type === "video" ? "VIDEO" : "PHOTO";
 
-                return `
-                  <figure class="gallery-slide">
-                    <span class="media-type-label">${label}</span>
-                    ${content}
-                    ${caption
-                      ? `<figcaption>${caption}</figcaption>`
-                      : ""}
-                    <span class="gallery-counter">
-                      ${index + 1} / ${validMedia.length}
-                    </span>
-                  </figure>
-                `;
-              }).join("")}
+                  const content = item.type === "video"
+                    ? `<video controls preload="metadata" playsinline>
+                        <source src="${src}">
+                        Your browser does not support video playback.
+                      </video>`
+                    : `<img src="${src}"
+                            alt="${caption || "Project photo"}"
+                            loading="lazy">`;
+
+                  return `
+                    <figure class="gallery-slide">
+                      <span class="media-type-label">${label}</span>
+                      ${content}
+                      ${caption
+                        ? `<figcaption>${caption}</figcaption>`
+                        : ""}
+                      <span class="gallery-counter">
+                        ${index + 1} / ${validMedia.length}
+                      </span>
+                    </figure>
+                  `;
+                }).join("")}
+              </div>
             </div>
-          </div>
 
-          <button
-            type="button"
-            class="gallery-arrow gallery-next"
-            aria-label="Next media"
-            data-gallery-next>
-            &#8594;
-          </button>
-        </div>
-      </section>
-    `;
+            <button type="button"
+                    class="gallery-arrow gallery-next"
+                    aria-label="Next media"
+                    data-gallery-next>
+              &#8594;
+            </button>
+          </div>
+        </section>
+      `;
+    }).join("");
   };
 
   try {
@@ -204,7 +205,12 @@ async function loadProjectPage() {
           ${renderListSection("Challenges & Solutions", project.challenges)}
           ${renderListSection("What I Learned", project.learnings)}
           ${renderTextSection("Results", project.results)}
-          ${renderMedia(project.media)}
+          ${renderGalleryGroups(
+            project.galleryGroups ||
+            (project.media?.length
+              ? [{ title: "Gallery", media: project.media }]
+              : [])
+          )}
         </div>
 
         <aside class="detail-sidebar">

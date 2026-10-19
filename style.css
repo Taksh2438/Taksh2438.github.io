@@ -1585,3 +1585,11 @@ button:focus-visible {
     transition: none;
   }
 }
+
+.gallery-group + .gallery-group {
+  margin-top: 28px;
+}
+
+.gallery-group > h2 {
+  margin-bottom: 18px;
+}

@@ -29,36 +29,81 @@
     "repository": "",
     "demo": ""
   },
-  "media": [
+  "galleryGroups": [
     {
-      "type": "image",
-      "src": "front-view.jpg",
-      "caption": "Front view of the robot"
+      "title": "Robot Photos",
+      "media": [
+        {
+          "type": "image",
+          "src": "front-view.jpg",
+          "caption": "Front view of the robot"
+        },
+        {
+          "type": "image",
+          "src": "side-view.jpg",
+          "caption": "Side view of the robot"
+        },
+        {
+          "type": "image",
+          "src": "circuit.jpg",
+          "caption": "Circuit design of the robot"
+        },
+        {
+          "type": "image",
+          "src": "personal-track.jpg",
+          "caption": "A custom made printed track"
+        },
+        {
+          "type": "image",
+          "src": "testing-track.jpg",
+          "caption": "Track provided by the organizers for testing"
+        }
+      ]
     },
     {
-      "type": "image",
-      "src": "side-view.jpg",
-      "caption": "Side view of the robot"
+      "title": "Testing Videos",
+      "media": [
+        {
+          "type": "video",
+          "src": "testing-clip.jpg",
+          "caption": "A clip made at the time of testing the robot"
+        }
+      ]
     },
     {
-      "type": "image",
-      "src": "circuit.jpg",
-      "caption": "Circuit design of the robot"
-    },
-    {
-      "type": "image",
-      "src": "personal-track.jpg",
-      "caption": "A custom made printed track"
-    },
-    {
-      "type": "image",
-      "src": "testing-track.jpg",
-      "caption": "Track provided by the organizers for testing"
-    },
-    {
-      "type": "video",
-      "src": "testing-clip.jpg",
-      "caption": "A clip made at the time of testing the robot"
+      "title": "Competition Day",
+      "media": [
+        {
+          "type": "image",
+          "src": "group-photo.jpg",
+          "caption": "The group photo while receiving certificate"
+        },
+        {
+          "type": "video",
+          "src": "round-1-clip.jpg",
+          "caption": "Video of the round 1"
+        },
+        {
+          "type": "video",
+          "src": "round-2-clip.jpg",
+          "caption": "Video of the round 2"
+        },
+        {
+          "type": "video",
+          "src": "final-round-clip.jpg",
+          "caption": "Video of the final round"
+        },
+        {
+          "type": "image",
+          "src": "round-2-track.jpg",
+          "caption": "Track of second round"
+        },
+        {
+          "type": "image",
+          "src": "final-round-track.jpg",
+          "caption": "Track of final round"
+        }
+      ]
     }
   ]
 }
