@@ -1855,3 +1855,9 @@ button:focus-visible {
 .hero-stats > * {
   text-align: center;
 }
+
+/* Center homepage stats text */
+.hero-stats,
+.hero-stats * {
+  text-align: center;
+}
