@@ -1755,22 +1755,37 @@ button:focus-visible {
 /* ===== ACTIVE PROJECT CAROUSEL ===== */
 
 .featured-section {
+  width: min(calc(100% - 48px), var(--container));
   min-width: 0;
-  margin: 64px 0;
+  margin: 64px auto;
 }
 
 .featured-section .section-heading {
   display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   margin-bottom: 24px;
+  text-align: center;
 }
 
 .featured-section .section-heading h2 {
   margin: 8px 0 0;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   line-height: 1.15;
+}
+
+.featured-section .section-heading > div:first-child {
+  text-align: center;
+}
+
+.featured-section .carousel-controls {
+  justify-content: center;
+}
+
+.featured-section .carousel-footer {
+  justify-content: center;
 }
 
 .carousel-controls {
