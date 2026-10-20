@@ -4,7 +4,7 @@
   "category": "App Development",
   "featured": "true",
   "showOnHome": "true",
-  "status": "In Progress",
+  "status": "Completed",
   "shortDescription": "A habit-tracking app with flexible habit types, customisation, and detailed progress statistics.",
   "overview": "HabitLens is a habit-tracking application designed to help users record habits and understand their progress over time.",
   "objectives": [
@@ -30,5 +30,46 @@
     "repository": "https://github.com/Taksh2438/HabitLens",
     "demo": ""
   },
-  "media": []
+  "galleryGroups": [
+    {
+      "title": "Dark Theme",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/home-screen-dark.jpg",
+          "caption": "Home page with dark theme"
+        },
+        {
+          "type": "image",
+          "src": "media/stats-screen-dark.jpg",
+          "caption": "Statistics screen with dark theme"
+        },
+        {
+          "type": "image",
+          "src": "media/stats-screen-2-dark.jpg",
+          "caption": "More statistics with dark theme"
+        }
+      ]
+    },
+    {
+      "title": "Light Theme",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/home-screen-light.jpg",
+          "caption": "Home page with light theme"
+        },
+        {
+          "type": "image",
+          "src": "media/stats-screen-light.jpg",
+          "caption": "Statistics screen with light theme"
+        },
+        {
+          "type": "image",
+          "src": "media/stats-screen-2-light.jpg",
+          "caption": "More statistics with light theme"
+        }
+      ]
+    }
+  ]
 }

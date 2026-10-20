@@ -1,3 +1,5 @@
+import * as THREE from "three";
+
 document.addEventListener("DOMContentLoaded", loadHomePage);
 
 async function loadHomePage() {
@@ -125,11 +127,10 @@ async function loadHomePage() {
 
         <div class="hero-visual" aria-label="Engineering-inspired visual">
           <div class="visual-ring visual-ring-one"></div>
-          <div class="visual-ring visual-ring-two"></div>
-          <div class="visual-core">TM<span>.</span></div>
-          <span class="visual-label visual-label-one">DESIGN</span>
-          <span class="visual-label visual-label-two">BUILD</span>
-          <span class="visual-label visual-label-three">IMPROVE</span>
+          <div class="visual-ring visual-ring-two"></div>            
+          <div class="visual-core sculpture-core" aria-label="Animated 3D Möbius strip">
+            <canvas id="mobius-canvas"></canvas>
+          </div>
         </div>
       </section>
 
@@ -230,3 +231,171 @@ async function loadHomePage() {
     `;
   }
 }
+
+function initMobiusSculpture() {
+  const canvas = document.getElementById("mobius-canvas");
+  if (!canvas) {
+    console.error("Möbius canvas not found!");
+    return;
+  }
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+  camera.position.z = 7;
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    alpha: true,
+    antialias: true
+  });
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+
+  // Create a technical surface texture
+  const textureCanvas = document.createElement("canvas");
+  textureCanvas.width = 1024;
+  textureCanvas.height = 512;
+
+  const ctx = textureCanvas.getContext("2d");
+  ctx.fillStyle = "#243746";
+  ctx.fillRect(0, 0, 1024, 512);
+
+  ctx.strokeStyle = "rgba(100, 210, 255, 0.2)";
+  ctx.lineWidth = 1;
+
+  for (let x = 0; x < 1024; x += 16) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, 512);
+    ctx.stroke();
+  }
+
+  for (let y = 0; y < 512; y += 16) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(1024, y);
+    ctx.stroke();
+  }
+
+  for (let i = 0; i < 100; i++) {
+    const x = Math.random() * 1024;
+    const y = Math.random() * 512;
+
+    ctx.strokeStyle = i % 3 === 0
+      ? "#ffb65c"
+      : "#69dfff";
+
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + 30 + Math.random() * 50, y);
+    ctx.lineTo(x + 30 + Math.random() * 50, y + 12);
+    ctx.stroke();
+  }
+
+  const texture = new THREE.CanvasTexture(textureCanvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+
+  // Generate the Möbius strip geometry
+  const positions = [];
+  const uvs = [];
+  const indices = [];
+
+  const segments = 240;
+  const widthSegments = 32;
+  const radius = 1.4;
+  const halfWidth = 0.48;
+
+  for (let i = 0; i <= segments; i++) {
+    const u = (i / segments) * Math.PI * 2;
+
+    for (let j = 0; j <= widthSegments; j++) {
+      const v = (j / widthSegments * 2 - 1) * halfWidth;
+      const twist = u / 2;
+      const r = radius + v * Math.cos(twist);
+
+      positions.push(
+        r * Math.cos(u),
+        r * Math.sin(u),
+        v * Math.sin(twist)
+      );
+
+      uvs.push(i / segments, j / widthSegments);
+    }
+  }
+
+  for (let i = 0; i < segments; i++) {
+    for (let j = 0; j < widthSegments; j++) {
+      const a = i * (widthSegments + 1) + j;
+      const b = a + widthSegments + 1;
+
+      indices.push(a, b, a + 1);
+      indices.push(b, b + 1, a + 1);
+    }
+  }
+
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute(
+    "position",
+    new THREE.Float32BufferAttribute(positions, 3)
+  );
+  geometry.setAttribute(
+    "uv",
+    new THREE.Float32BufferAttribute(uvs, 2)
+  );
+  geometry.setIndex(indices);
+  geometry.computeVertexNormals();
+
+  const material = new THREE.MeshStandardMaterial({
+    map: texture,
+    metalness: 0.85,
+    roughness: 0.25,
+    side: THREE.DoubleSide
+  });
+
+  const mobius = new THREE.Mesh(geometry, material);
+  scene.add(mobius);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 1.5));
+
+  const blueLight = new THREE.PointLight(0x39aaff, 45);
+  blueLight.position.set(-3, 2, 4);
+  scene.add(blueLight);
+
+  const goldLight = new THREE.PointLight(0xffad55, 30);
+  goldLight.position.set(3, -2, 2);
+  scene.add(goldLight);
+
+  const whiteLight = new THREE.DirectionalLight(0xffffff, 3);
+  whiteLight.position.set(1, 4, 5);
+  scene.add(whiteLight);
+
+  function resize() {
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+
+    if (!width || !height) return;
+
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  }
+
+  const observer = new ResizeObserver(resize);
+  observer.observe(canvas);
+  resize();
+
+  function animate() {
+    requestAnimationFrame(animate);
+    mobius.rotation.x = -0.3;
+    mobius.rotation.y += 0.004;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initMobiusSculpture();
+});
