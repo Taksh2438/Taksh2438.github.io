@@ -4,7 +4,7 @@
   "category": "App Development",
   "featured": true,
   "showOnHome": true,
-  "status": "In Development",
+  "status": "Completed",
   "shortDescription": "A personal habit-tracking app designed to make logging quick and help users understand progress over time.",
   "overview": "HabitLens is a Flutter and Dart application focused on practical habit recording and trend discovery. It supports different input styles so users can track simple completion and measurable goals. The project is being developed iteratively, with a focus on reliable data handling and clear statistics.",
   "objectives": [
@@ -36,7 +36,7 @@
     "Testing storage and statistics across multiple habit types",
     "Iterating on requirements to keep daily logging simple"
   ],
-  "results": "The app is publicly available as a source repository and remains under development. Verify individual features against the latest build.",
+  "results": "HabitLens is a completed Flutter habit-tracking application developed independently. Its features include multiple habit input types, progress statistics, habit customisation, and light and dark themes. The source code is publicly available on GitHub.",
   "links": {
     "repository": "https://github.com/Taksh2438/HabitLens",
     "demo": ""
