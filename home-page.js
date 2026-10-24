@@ -81,7 +81,7 @@ async function loadHomePage() {
         : "";
 
       return `
-        <a class="featured-card project-card-link"
+        <a class="featured-card project-card-link scroll-reveal-card"
            href="projects/${encodeURIComponent(String(project.id ?? ""))}/">
           <div class="project-art">${artwork}</div>
           <div class="project-content">
@@ -192,6 +192,29 @@ async function loadHomePage() {
     `;
 
     initMobiusSculpture();
+
+    // Reveal project cards when they enter the viewport.
+    const revealCards = root.querySelectorAll(".scroll-reveal-card");
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      revealCards.forEach((card) => card.classList.add("is-visible"));
+    } else if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealCards.forEach((card, index) => {
+        card.style.setProperty("--reveal-delay", `${(index % 3) * 100}ms`);
+        revealObserver.observe(card);
+      });
+    } else {
+      revealCards.forEach((card) => card.classList.add("is-visible"));
+    }
 
     const track = root.querySelector("#featured-track");
     const previous = root.querySelector("[data-project-prev]");
