@@ -1,81 +1,106 @@
 {
   "name": "Taksh Mehta",
   "location": "Bharuch, Gujarat, India",
-  "headline": "Mechanical Engineering Student | Aspiring Builder",
-  "intro": "I'm Taksh Mehta. I'm currently building HabitLens while exploring ideas in engineering and technology.",
+  "headline": "Mechanical Engineering Student | Robotics, CAD & Software",
+  "intro": "I'm Taksh Mehta, a Mechanical Engineering student at CHARUSAT who learns by building, testing, and improving practical projects.",
   "about": [
-    "I'm a Mechanical Engineering student at CHARUSAT who enjoys understanding how things work and turning ideas into practical projects.",
-    "I learn by experimenting, building, testing, and improving. I'm developing my skills in programming, mechanical design, and electronics.",
-    "My long-term ambition is to build a business around technology and engineering. For now, I'm focused on learning, creating, and gaining practical experience."
+    "I'm a Mechanical Engineering student at CHARUSAT interested in robotics, mechanical design, programming, and practical engineering.",
+    "I enjoy learning by making things: modelling parts in SolidWorks, experimenting with electronics, building software, and testing ideas.",
+    "My current work includes HabitLens, a personal habit-tracking app; a line-following robot that placed third in Track Trace 2.0; and a growing collection of 50+ SolidWorks models and assemblies.",
+    "I'm early in my engineering journey, so I focus on strong fundamentals, documenting what I learn, and being clear about what is complete versus still in progress."
   ],
   "education": [
     {
       "degree": "B.Tech in Mechanical Engineering",
       "institution": "Charotar University of Science and Technology (CHARUSAT)",
-      "level": "First year"
+      "level": "Undergraduate"
     }
   ],
   "skills": [
     {
       "category": "Programming",
-      "items": ["Python", "C++", "HTML", "Dart"]
+      "items": [
+        "Python",
+        "C++",
+        "HTML",
+        "Dart"
+      ]
     },
     {
       "category": "App Development",
-      "items": ["Flutter"]
+      "items": [
+        "Flutter"
+      ]
     },
     {
       "category": "Mechanical Design",
-      "items": ["SolidWorks", "3D CAD", "Assemblies"]
+      "items": [
+        "SolidWorks",
+        "3D CAD",
+        "Assemblies"
+      ]
     },
     {
-      "category": "Electronics and Tools",
-      "items": ["Arduino", "Git", "GitHub", "VS Code"]
+      "category": "Electronics & Prototyping",
+      "items": [
+        "Arduino",
+        "IR Sensors",
+        "Motor Drivers"
+      ]
+    },
+    {
+      "category": "Development Tools",
+      "items": [
+        "Git",
+        "GitHub",
+        "VS Code"
+      ]
     }
   ],
   "interests": [
     "Robotics",
-    "Artificial Intelligence",
     "Automation",
     "Mechanical Design",
-    "Machines"
+    "Embedded Systems",
+    "Software Development",
+    "Engineering Visualisation"
   ],
   "achievements": [
     {
-      "title": "Third Place — Track Trace 2.0",
-      "description": "Competed in a university line-following robot competition, contributing to robot design, testing, code checks, and assembly."
+      "title": "Third Place — Track Trace 2.0 (2026)",
+      "description": "Contributed to the team's line-following robot through testing, code error checking, design, and assembly. The team achieved third place."
     },
     {
       "title": "50+ SolidWorks Models",
-      "description": "Created more than 50 mechanical CAD models and assemblies through hands-on practice."
+      "description": "Built a growing collection of more than 50 mechanical CAD models and assemblies through hands-on practice."
     },
     {
-      "title": "Hackathon Experience",
-      "description": "Explored a cybersecurity complaint-triage concept during the IBM Bob Hackathon."
+      "title": "Independent App Development",
+      "description": "Developing HabitLens, a Flutter and Dart habit-tracking app focused on flexible logging and progress statistics."
     }
   ],
   "workshops": [
     {
       "title": "Beyond The Blueprints: KTM 390 Engine Anatomy in Action",
-      "description": "Explored the anatomy and working of a KTM 390 engine."
+      "description": "Explored the anatomy and working principles of a KTM 390 engine."
     },
     {
       "title": "Arduino Essentials: From Zero to Prototype",
-      "description": "Learned about Arduino boards, electronic components, and basic prototyping."
+      "description": "Explored Arduino boards, electronic components, and introductory prototyping."
     }
   ],
   "qualities": [
     {
       "title": "Curiosity",
-      "description": "I enjoy exploring how systems work and asking questions."
+      "description": "I like understanding why a system works, not only following steps."
     },
     {
       "title": "Persistence",
-      "description": "I test, troubleshoot, and keep improving when things fail."
+      "description": "I test, troubleshoot, and iterate when a design or program does not work as expected."
     },
     {
       "title": "Practical Thinking",
-      "description": "I value turning concepts into working designs and projects."
+      "description": "I aim to connect theory with physical builds, CAD models, and working software."
     }
   ],
   "social": {

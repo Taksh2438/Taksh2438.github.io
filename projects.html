@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore engineering, robotics, CAD, and software projects by Taksh Mehta.">
+  <meta name="theme-color" content="#090D0C">
   <title>Projects | Taksh Mehta</title>
 
   <link rel="stylesheet" href="style.css">
@@ -13,7 +14,7 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="index.html">TM<span>.</span></a>
+      <a class="logo" href="index.html" aria-label="Taksh Mehta home">TM<span>.</span></a>
 
       <button class="menu-toggle"
               type="button"
@@ -32,24 +33,68 @@
     </div>
   </header>
 
-  <main class="projects-page container">
+  <main class="projects-page">
     <section class="projects-intro">
-      <p class="eyebrow">SELECTED WORK</p>
-      <h1>Projects & Experiments</h1>
+      <p class="eyebrow">SELECTED WORK / EXPERIMENTS</p>
+      <h1>Projects &amp; <span class="green-text">Experiments.</span></h1>
       <p>
-        A collection of things I've built, designed, tested, and learned from.
-        Open a project to explore the details.
+        Engineering, robotics, CAD, and software projects.
+        Explore what I've built, tested, and learned.
       </p>
     </section>
 
-    <p id="project-grid-message" role="status" aria-live="polite">
-      Loading projects...
-    </p>
+    <section class="project-browser" aria-label="Search and filter projects">
+      <div class="project-search-wrap">
+        <label for="project-search">Find a project</label>
+        <input
+          id="project-search"
+          type="search"
+          placeholder="Search by name, technology, or keyword..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+
+      <div class="project-filter-heading">
+        <span class="filter-label">CATEGORIES</span>
+        <button id="clear-project-filters" class="filter-clear" type="button">
+          Clear filters
+        </button>
+      </div>
+
+      <div id="project-filters"
+           class="project-filters"
+           role="group"
+           aria-label="Filter projects by category">
+        <button class="project-filter is-active"
+                type="button"
+                data-category="all"
+                aria-pressed="true">
+          All projects
+        </button>
+      </div>
+
+      <p id="project-grid-message"
+         class="project-results-message"
+         role="status"
+         aria-live="polite">
+        Loading projects...
+      </p>
+    </section>
 
     <section id="project-grid"
              class="project-grid"
              aria-label="Project cards">
     </section>
+
+    <div id="project-empty-state" class="project-empty-state" hidden>
+      <span class="empty-state-symbol" aria-hidden="true">⌕</span>
+      <h2>No matching projects</h2>
+      <p>Try another search term or clear your category filter.</p>
+      <button id="empty-clear-filters" class="button button-secondary" type="button">
+        Show all projects
+      </button>
+    </div>
   </main>
 
   <footer class="site-footer">

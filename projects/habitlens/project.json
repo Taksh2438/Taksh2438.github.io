@@ -2,30 +2,41 @@
   "id": "habitlens",
   "name": "HabitLens",
   "category": "App Development",
-  "featured": "true",
-  "showOnHome": "true",
-  "status": "Completed",
-  "shortDescription": "A habit-tracking app with flexible habit types, customisation, and detailed progress statistics.",
-  "overview": "HabitLens is a habit-tracking application designed to help users record habits and understand their progress over time.",
+  "featured": true,
+  "showOnHome": true,
+  "status": "In Development",
+  "shortDescription": "A personal habit-tracking app designed to make logging quick and help users understand progress over time.",
+  "overview": "HabitLens is a Flutter and Dart application focused on practical habit recording and trend discovery. It supports different input styles so users can track simple completion and measurable goals. The project is being developed iteratively, with a focus on reliable data handling and clear statistics.",
   "objectives": [
-    "Support different types of habits.",
-    "Make habit tracking simple and customisable.",
-    "Present useful progress statistics."
+    "Support several habit input types without making daily logging complicated.",
+    "Keep habit recording separate from progress analysis.",
+    "Present daily, weekly, and monthly progress in a useful format.",
+    "Allow users to correct or remove historical entries."
   ],
-  "technologies": ["Flutter", "Dart"],
+  "technologies": [
+    "Flutter",
+    "Dart"
+  ],
   "role": [
-    "Designed and developed the application as a solo project."
+    "Designed and developed the application as an independent project."
   ],
   "features": [
-    "Checkbox, numerical-goal, counter, and rating-based habits",
+    "Checkbox, numeric-goal, counter, and rating-based habits",
     "Custom habit names and icons",
-    "Habit sorting",
     "Daily, weekly, and monthly statistics",
-    "Light and dark themes"
+    "Light and dark themes",
+    "Habit sorting and progress tracking"
   ],
-  "challenges": [],
-  "learnings": [],
-  "results": "The project is under development.",
+  "challenges": [
+    "Supporting multiple habit types requires consistent validation and statistics across different input formats.",
+    "Statistics must interpret each habit type correctly, including counters whose logged values can exceed a target."
+  ],
+  "learnings": [
+    "Structuring a Flutter app around reusable data models and services",
+    "Testing storage and statistics across multiple habit types",
+    "Iterating on requirements to keep daily logging simple"
+  ],
+  "results": "The app is publicly available as a source repository and remains under development. Verify individual features against the latest build.",
   "links": {
     "repository": "https://github.com/Taksh2438/HabitLens",
     "demo": ""
@@ -37,17 +48,17 @@
         {
           "type": "image",
           "src": "media/home-screen-dark.jpg",
-          "caption": "Home page with dark theme"
+          "caption": "HabitLens home screen in dark theme"
         },
         {
           "type": "image",
           "src": "media/stats-screen-dark.jpg",
-          "caption": "Statistics screen with dark theme"
+          "caption": "Statistics screen in dark theme"
         },
         {
           "type": "image",
           "src": "media/stats-screen-2-dark.jpg",
-          "caption": "More statistics with dark theme"
+          "caption": "Additional progress statistics in dark theme"
         }
       ]
     },
@@ -57,17 +68,17 @@
         {
           "type": "image",
           "src": "media/home-screen-light.jpg",
-          "caption": "Home page with light theme"
+          "caption": "HabitLens home screen in light theme"
         },
         {
           "type": "image",
           "src": "media/stats-screen-light.jpg",
-          "caption": "Statistics screen with light theme"
+          "caption": "Statistics screen in light theme"
         },
         {
           "type": "image",
           "src": "media/stats-screen-2-light.jpg",
-          "caption": "More statistics with light theme"
+          "caption": "Additional progress statistics in light theme"
         }
       ]
     }

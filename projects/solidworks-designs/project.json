@@ -2,15 +2,15 @@
   "id": "solidworks-designs",
   "name": "Mechanical CAD Designs",
   "category": "Mechanical Design",
-  "featured": "true",
-  "showOnHome": "false",
+  "featured": true,
+  "showOnHome": true,
   "status": "Ongoing",
-  "shortDescription": "A collection of 50+ SolidWorks models and assemblies created through hands-on practice.",
-  "overview": "A growing portfolio of mechanical components, multi-part assemblies, and designs created from engineering drawings and independent practice.",
+  "shortDescription": "A growing collection of 50+ SolidWorks models and assemblies created through hands-on practice.",
+  "overview": "This collection documents ongoing practice in mechanical CAD, including individual components and multi-part assemblies. Models are created to improve 3D modelling skills, understand component relationships, and practise interpreting engineering drawings.",
   "objectives": [
-    "Improve 3D modelling skills.",
-    "Understand component relationships and assemblies.",
-    "Develop the ability to interpret engineering drawings."
+    "Improve accuracy and confidence in 3D modelling.",
+    "Understand how individual parts fit together in assemblies.",
+    "Build familiarity with engineering drawings and mechanical geometry."
   ],
   "technologies": [
     "SolidWorks",
@@ -18,16 +18,24 @@
     "Mechanical Assemblies"
   ],
   "role": [
-    "Created and assembled the models independently as practice projects."
+    "Created the models and assemblies independently as practice projects."
   ],
   "features": [
     "Individual mechanical components",
+    "Multi-part assemblies",
     "Wooden toy airplane assembly",
     "Nut-and-bolt assembly"
   ],
-  "challenges": [],
-  "learnings": [],
-  "results": "More than 50 CAD models and assemblies created.",
+  "challenges": [
+    "Translating two-dimensional drawings and dimensions into a consistent three-dimensional model.",
+    "Maintaining correct part relationships and fit in assemblies."
+  ],
+  "learnings": [
+    "3D part modelling and assembly workflows in SolidWorks.",
+    "Reading dimensions and interpreting mechanical drawings.",
+    "Checking geometry and part relationships."
+  ],
+  "results": "More than 50 models and assemblies created to date. The collection is ongoing.",
   "links": {
     "repository": "",
     "demo": ""

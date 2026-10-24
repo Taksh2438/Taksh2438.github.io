@@ -2,15 +2,15 @@
   "id": "line-following-robot",
   "name": "Line-Following Robot",
   "category": "Robotics",
-  "featured": "true",
-  "showOnHome": "true",
+  "featured": true,
+  "showOnHome": true,
   "status": "Completed",
-  "shortDescription": "A line-following robot built for Track Trace 2.0, where our team achieved third place.",
-  "overview": "A robotics competition project involving an Arduino-based robot designed to follow a track using infrared sensors.",
+  "shortDescription": "An Arduino-based line-following robot built for Track Trace 2.0, where the team earned third place in 2026.",
+  "overview": "This project involved building and testing a line-following robot for Track Trace 2.0. The robot used an Arduino Nano, infrared sensors, a motor driver, and a PCB-based electronics setup to detect and follow a track. The team achieved third place.",
   "objectives": [
-    "Build a working line-following robot.",
-    "Integrate sensors, motor control, and the controller.",
-    "Test and improve the robot's performance on the track."
+    "Build a robot capable of following a marked track.",
+    "Integrate the controller, sensors, motor driver, and electronics.",
+    "Test the robot and identify issues before and during competition rounds."
   ],
   "technologies": [
     "Arduino Nano",
@@ -19,14 +19,26 @@
     "PCB"
   ],
   "role": [
-    "Tested the robot.",
-    "Checked the code for errors.",
+    "Tested robot behavior on the track.",
+    "Checked code for errors and helped troubleshoot problems.",
     "Contributed to the robot's design and assembly."
   ],
-  "features": [],
-  "challenges": [],
-  "learnings": [],
-  "results": "Third place in the Track Trace 2.0 university competition in 2026.",
+  "features": [
+    "Infrared-based track detection",
+    "Arduino Nano control",
+    "Motor-driven movement",
+    "Testing across practice and competition tracks"
+  ],
+  "challenges": [
+    "Robot performance had to be checked repeatedly against different track conditions and turns.",
+    "Hardware, wiring, and code needed to work together, making testing and error checking important."
+  ],
+  "learnings": [
+    "How sensors, a microcontroller, and a motor driver work together in a mobile robot.",
+    "The value of repeated testing and systematic troubleshooting.",
+    "How mechanical assembly and electronics reliability affect performance."
+  ],
+  "results": "Third place in Track Trace 2.0 in 2026. The user's contribution focused on testing, code error checking, design, and assembly; the user was not the team leader.",
   "links": {
     "repository": "",
     "demo": ""
@@ -38,47 +50,47 @@
         {
           "type": "image",
           "src": "media/group-photo.jpg",
-          "caption": "The group photo while receiving certificate"
+          "caption": "Team photo during the competition"
         },
         {
           "type": "video",
           "src": "media/round-1-clip.mp4",
-          "caption": "Video of the round 1"
+          "caption": "Robot run during round one"
         },
         {
           "type": "image",
           "src": "media/round-2-track.jpg",
-          "caption": "Track of second round"
+          "caption": "Track used for the second round"
         },
         {
           "type": "video",
           "src": "media/round-2-clip.mp4",
-          "caption": "Video of the round 2"
+          "caption": "Robot run during round two"
         },
         {
           "type": "image",
           "src": "media/final-round-track.jpg",
-          "caption": "Track of final round"
+          "caption": "Track used for the final round"
         },
         {
           "type": "video",
           "src": "media/final-round-clip.mp4",
-          "caption": "Video of the final round"
+          "caption": "Robot run during the final round"
         }
       ]
     },
     {
-      "title": "Testing Videos",
+      "title": "Testing",
       "media": [
         {
           "type": "video",
           "src": "media/testing-clip.mp4",
-          "caption": "A clip made at the time of testing the robot"
+          "caption": "Robot testing session"
         }
       ]
     },
     {
-      "title": "Robot Photos",
+      "title": "Robot and Electronics",
       "media": [
         {
           "type": "image",
@@ -93,17 +105,17 @@
         {
           "type": "image",
           "src": "media/circuit.jpg",
-          "caption": "Circuit design of the robot"
+          "caption": "Robot electronics and circuit"
         },
         {
           "type": "image",
           "src": "media/personal-track.jpg",
-          "caption": "A custom made printed track"
+          "caption": "Custom printed track used for practice"
         },
         {
           "type": "image",
           "src": "media/testing-track.jpg",
-          "caption": "Track provided by the organizers for testing"
+          "caption": "Track used during testing"
         }
       ]
     }

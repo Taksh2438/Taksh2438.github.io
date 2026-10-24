@@ -2,25 +2,34 @@
   "id": "ibm-bob-hackathon",
   "name": "Cybersecurity Complaint Triage",
   "category": "Hackathon",
-  "featured": "true",
-  "showOnHome": "false",
-  "status": "Completed",
-  "shortDescription": "A concept for prioritising cybersecurity complaints and identifying potentially fake or low-priority reports.",
-  "overview": "A hackathon concept focused on helping teams organise incoming cybersecurity complaints so that important reports can receive attention first.",
+  "featured": false,
+  "showOnHome": false,
+  "status": "Concept",
+  "shortDescription": "A hackathon concept exploring prioritisation of cybersecurity complaints and identification of potentially low-quality reports.",
+  "overview": "The concept focused on organising incoming cybersecurity complaints so teams could identify reports that may need urgent attention and separate them from potentially irrelevant or low-priority submissions. This is a concept developed during the IBM Bob Hackathon, not a deployed cybersecurity product.",
   "objectives": [
-    "Prioritise complaints based on importance.",
-    "Explore ways to flag potentially fake or irrelevant reports.",
-    "Improve the organisation of incoming reports."
+    "Explore how incoming complaints could be prioritised.",
+    "Consider how potentially fake, duplicate, or low-importance reports might be flagged.",
+    "Improve organisation of reports for human review."
   ],
   "technologies": [
     "Cybersecurity",
     "Complaint Triage"
   ],
   "role": [],
-  "features": [],
-  "challenges": [],
-  "learnings": [],
-  "results": "Concept developed during the IBM Bob Hackathon.",
+  "features": [
+    "Conceptual complaint prioritisation",
+    "Potential low-quality report flagging for human review"
+  ],
+  "challenges": [
+    "A triage system must avoid incorrectly dismissing genuine, high-risk reports.",
+    "Automated priority scores would need clear criteria and human review."
+  ],
+  "learnings": [
+    "Turning a broad problem statement into a focused concept.",
+    "Considering false positives and risks of automated prioritisation."
+  ],
+  "results": "Concept developed during the IBM Bob Hackathon. No deployment or measured performance is claimed.",
   "links": {
     "repository": "",
     "demo": ""

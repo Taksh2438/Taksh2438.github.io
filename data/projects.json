@@ -3,65 +3,110 @@
     "id": "habitlens",
     "name": "HabitLens",
     "category": "APP DEVELOPMENT",
-    "description": "A habit-tracking application with multiple habit types, custom icons, sorting, statistics, and light and dark themes.",
-    "technologies": ["Flutter", "Dart"],
-    "status": "In Progress",
+    "description": "A Flutter habit-tracking app with checkbox, numeric, counter, and rating-based habits, customisation, and progress statistics.",
+    "technologies": [
+      "Flutter",
+      "Dart"
+    ],
+    "status": "In Development",
     "symbol": "H",
     "featured": true,
     "showOnHome": true,
-    "link": "",
-    "image": "projects/habitlens/media/app-icon.png"
+    "link": "https://github.com/Taksh2438/HabitLens",
+    "image": "projects/habitlens/media/app-icon.png",
+    "tags": [
+      "software",
+      "app development",
+      "flutter"
+    ]
   },
   {
     "id": "line-following-robot",
     "name": "Line-Following Robot",
     "category": "ROBOTICS",
-    "description": "A line-following robot built for Track Trace 2.0, a university competition where our team achieved third place.",
-    "technologies": ["Arduino Nano", "IR Sensors", "Motor Driver"],
+    "description": "An Arduino-based line-following robot built for Track Trace 2.0, where the team achieved third place in 2026.",
+    "technologies": [
+      "Arduino Nano",
+      "IR Sensors",
+      "Motor Driver",
+      "PCB"
+    ],
     "status": "Completed",
     "symbol": "R",
     "featured": true,
     "showOnHome": true,
     "link": "",
-    "image": "projects/line-following-robot/media/side-view.jpg"
+    "image": "projects/line-following-robot/media/side-view.jpg",
+    "tags": [
+      "robotics",
+      "electronics",
+      "competition"
+    ]
   },
   {
     "id": "solidworks-designs",
     "name": "Mechanical CAD Designs",
     "category": "MECHANICAL DESIGN",
-    "description": "A collection of 50+ SolidWorks models and assemblies, including mechanical components and multi-part designs.",
-    "technologies": ["SolidWorks", "3D CAD", "Assemblies"],
+    "description": "A collection of 50+ SolidWorks models and assemblies developed through engineering drawing practice and independent design work.",
+    "technologies": [
+      "SolidWorks",
+      "3D CAD",
+      "Assemblies"
+    ],
     "status": "Ongoing",
     "symbol": "3D",
     "featured": true,
     "showOnHome": true,
     "link": "",
-    "image": ""
+    "image": "",
+    "tags": [
+      "cad",
+      "mechanical design",
+      "solidworks"
+    ]
   },
   {
     "id": "ibm-bob-hackathon",
     "name": "Cybersecurity Complaint Triage",
     "category": "HACKATHON",
-    "description": "A prototype concept for prioritizing cybersecurity complaints and filtering potentially fake or low-importance reports.",
-    "technologies": ["Cybersecurity", "Triage"],
+    "description": "A hackathon concept exploring how cybersecurity complaints could be prioritised and potentially low-quality reports flagged.",
+    "technologies": [
+      "Cybersecurity",
+      "Complaint Triage"
+    ],
     "status": "Concept",
     "symbol": "C",
     "featured": false,
     "showOnHome": false,
     "link": "",
-    "image": ""
+    "image": "",
+    "tags": [
+      "hackathon",
+      "cybersecurity",
+      "concept"
+    ]
   },
   {
     "id": "current-hackathon",
-    "name": "Current Hackathon Project",
+    "name": "Municipal Sanitation Monitoring System",
     "category": "HACKATHON",
-    "description": "A project currently in development during a hackathon. More details will be added as the work progresses.",
-    "technologies": ["In Development"],
-    "status": "Ongoing",
-    "symbol": "H",
+    "description": "A citizen-centric prototype concept for reporting garbage, open gutters, and sanitation issues, with officer assignment and worker task views.",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Maps"
+    ],
+    "status": "Prototype in Development",
+    "symbol": "S",
     "featured": true,
     "showOnHome": true,
     "link": "",
-    "image": ""
+    "image": "",
+    "tags": [
+      "hackathon",
+      "web development",
+      "civic technology"
+    ]
   }
 ]

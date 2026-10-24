@@ -1,19 +1,39 @@
 {
   "id": "current-hackathon",
-  "name": "Current Hackathon Project",
+  "name": "Municipal Sanitation Monitoring System",
   "category": "Hackathon",
-  "featured": "true",
-  "showOnHome": "false",
-  "status": "In Progress",
-  "shortDescription": "A project currently being developed as part of a hackathon.",
-  "overview": "Details will be added as the project develops.",
-  "objectives": [],
-  "technologies": [],
+  "featured": true,
+  "showOnHome": true,
+  "status": "Prototype in Development",
+  "shortDescription": "A citizen-centric concept for reporting sanitation issues and routing work to municipal workers.",
+  "overview": "This hackathon project is intended to support reporting and tracking public sanitation issues such as garbage accumulation and open gutters. The planned workflow includes citizen complaint submission with a photo and location, an officer view for reviewing and assigning complaints, and a worker view for assigned tasks.",
+  "objectives": [
+    "Make it easier for citizens to report public sanitation problems.",
+    "Give officers a central view of incoming complaints and task assignment.",
+    "Give workers a clear view of assigned work."
+  ],
+  "technologies": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Maps"
+  ],
   "role": [],
-  "features": [],
-  "challenges": [],
-  "learnings": [],
-  "results": "Currently in development.",
+  "features": [
+    "Planned citizen, worker, and officer interfaces",
+    "Photo and location details for complaints",
+    "Officer assignment workflow",
+    "Worker task view"
+  ],
+  "challenges": [
+    "The prototype needs consistent complaint status and assignment workflows across all three roles.",
+    "Map and location functionality should remain usable on smaller screens."
+  ],
+  "learnings": [
+    "Designing a multi-role workflow around a civic problem.",
+    "Breaking a large hackathon concept into separate views and responsibilities."
+  ],
+  "results": "Prototype in development. Listed features describe the planned workflow and are not a deployed municipal service.",
   "links": {
     "repository": "",
     "demo": ""
