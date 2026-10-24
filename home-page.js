@@ -68,7 +68,7 @@ async function loadHomePage() {
 
       const artwork = image
         ? `<img src="${escapeHTML(image)}"
-                alt="${escapeHTML(project.name)} preview"
+                alt="${escapeHTML(project.name || "Project")} preview"
                 loading="lazy">`
         : `<span class="project-symbol" aria-hidden="true">
              ${escapeHTML(project.symbol || "P")}
@@ -82,7 +82,7 @@ async function loadHomePage() {
 
       return `
         <a class="featured-card project-card-link"
-           href="projects/${encodeURIComponent(project.id)}/">
+           href="projects/${encodeURIComponent(String(project.id ?? ""))}/">
           <div class="project-art">${artwork}</div>
           <div class="project-content">
             <p class="eyebrow">
@@ -95,7 +95,7 @@ async function loadHomePage() {
             <div class="tech-tags">${tags}</div>
             <div class="project-card-bottom">
               <span class="project-status">
-                ${escapeHTML(project.status)}
+                ${escapeHTML(project.status || "")}
               </span>
               <span class="project-link">Explore project ↗</span>
             </div>
@@ -126,9 +126,8 @@ async function loadHomePage() {
         </div>
 
         <div class="hero-visual" aria-label="Engineering-inspired visual">
-          <div class="visual-ring visual-ring-one"></div>
-          <div class="visual-ring visual-ring-two"></div>            
-          <div class="visual-core sculpture-core" aria-label="Animated 3D Möbius strip">
+          <div class="visual-core sculpture-core"
+               aria-label="Animated 3D Möbius strip">
             <canvas id="mobius-canvas"></canvas>
           </div>
         </div>
@@ -148,11 +147,11 @@ async function loadHomePage() {
           </div>
           <div class="carousel-controls">
             <button class="carousel-arrow" type="button"
-              data-project-prev aria-label="Previous projects">
+                    data-project-prev aria-label="Previous projects">
               &#8592;
             </button>
             <button class="carousel-arrow" type="button"
-              data-project-next aria-label="Next projects">
+                    data-project-next aria-label="Next projects">
               &#8594;
             </button>
           </div>
@@ -162,7 +161,7 @@ async function loadHomePage() {
           activeProjects.length
             ? `<div class="featured-carousel">
                  <div class="featured-track" id="featured-track"
-                   tabindex="0" aria-label="Current projects">
+                      tabindex="0" aria-label="Current projects">
                    ${cards}
                  </div>
                </div>`
@@ -191,6 +190,8 @@ async function loadHomePage() {
         </a>
       </section>
     `;
+
+    initMobiusSculpture();
 
     const track = root.querySelector("#featured-track");
     const previous = root.querySelector("[data-project-prev]");
@@ -223,6 +224,7 @@ async function loadHomePage() {
     }
   } catch (error) {
     console.error("Homepage error:", error);
+
     root.innerHTML = `
       <section class="detail-error">
         <h1>Portfolio unavailable</h1>
@@ -234,168 +236,220 @@ async function loadHomePage() {
 
 function initMobiusSculpture() {
   const canvas = document.getElementById("mobius-canvas");
-  if (!canvas) {
-    console.error("Möbius canvas not found!");
-    return;
-  }
-  const scene = new THREE.Scene();
+  if (!canvas) return;
 
-  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
-  camera.position.z = 7;
+  let renderer;
 
-  const renderer = new THREE.WebGLRenderer({
-    canvas,
-    alpha: true,
-    antialias: true
-  });
+  try {
+    const scene = new THREE.Scene();
 
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+    camera.position.z = 7;
 
-  // Create a technical surface texture
-  const textureCanvas = document.createElement("canvas");
-  textureCanvas.width = 1024;
-  textureCanvas.height = 512;
+    renderer = new THREE.WebGLRenderer({
+      canvas,
+      alpha: true,
+      antialias: true
+    });
 
-  const ctx = textureCanvas.getContext("2d");
-  ctx.fillStyle = "#243746";
-  ctx.fillRect(0, 0, 1024, 512);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
-  ctx.strokeStyle = "rgba(100, 210, 255, 0.2)";
-  ctx.lineWidth = 1;
+    // Create a dark metallic tile texture with staggered rows.
+    const panelCanvas = document.createElement("canvas");
+    panelCanvas.width = 1024;
+    panelCanvas.height = 512;
 
-  for (let x = 0; x < 1024; x += 16) {
-    ctx.beginPath();
-    ctx.moveTo(x, 0);
-    ctx.lineTo(x, 512);
-    ctx.stroke();
-  }
+    const panelCtx = panelCanvas.getContext("2d");
+    if (!panelCtx) throw new Error("Could not create tile texture.");
 
-  for (let y = 0; y < 512; y += 16) {
-    ctx.beginPath();
-    ctx.moveTo(0, y);
-    ctx.lineTo(1024, y);
-    ctx.stroke();
-  }
+    panelCtx.fillStyle = "#080f19";
+    panelCtx.fillRect(0, 0, 1024, 512);
 
-  for (let i = 0; i < 100; i++) {
-    const x = Math.random() * 1024;
-    const y = Math.random() * 512;
+    const tileW = 102.4; // 10 blocks across the texture
+    const tileH = 51.2;    // Larger rectangular blocks
 
-    ctx.strokeStyle = i % 3 === 0
-      ? "#ffb65c"
-      : "#69dfff";
+    for (let y = 0; y < 512; y += tileH) {
+      const row = Math.floor(y / tileH);
+      const offset = (row % 3) * (tileW / 3);
 
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.lineTo(x + 30 + Math.random() * 50, y);
-    ctx.lineTo(x + 30 + Math.random() * 50, y + 12);
-    ctx.stroke();
-  }
+      for (let column = -1; column <= 1024 / tileW; column++) {
+        const x = column * tileW + offset;
+        const shade = Math.floor(16 + Math.random() * 15);
 
-  const texture = new THREE.CanvasTexture(textureCanvas);
-  texture.colorSpace = THREE.SRGBColorSpace;
+        // Dark titanium tile.
+        panelCtx.fillStyle =
+          `rgb(${shade}, ${shade + 7}, ${shade + 17})`;
+        panelCtx.fillRect(
+          x + 2, y + 2, tileW - 4, tileH - 4
+        );
 
-  // Generate the Möbius strip geometry
-  const positions = [];
-  const uvs = [];
-  const indices = [];
+        // Fine metallic inner border.
+        panelCtx.strokeStyle = "rgba(150, 190, 220, 0.55)";
+        panelCtx.lineWidth = 0.7;
+        panelCtx.strokeRect(
+          x + 2, y + 2, tileW - 4, tileH - 4
+        );
 
-  const segments = 240;
-  const widthSegments = 32;
-  const radius = 1.4;
-  const halfWidth = 0.48;
+        // Electric-blue illuminated outer seam.
+        panelCtx.shadowColor = "#008cff";
+        panelCtx.shadowBlur = 3;
+        panelCtx.strokeStyle = "#087dff";
+        panelCtx.lineWidth = 1;
+        panelCtx.strokeRect(
+          x + 1, y + 1, tileW - 2, tileH - 2
+        );
+        panelCtx.shadowBlur = 0;
 
-  for (let i = 0; i <= segments; i++) {
-    const u = (i / segments) * Math.PI * 2;
-
-    for (let j = 0; j <= widthSegments; j++) {
-      const v = (j / widthSegments * 2 - 1) * halfWidth;
-      const twist = u / 2;
-      const r = radius + v * Math.cos(twist);
-
-      positions.push(
-        r * Math.cos(u),
-        r * Math.sin(u),
-        v * Math.sin(twist)
-      );
-
-      uvs.push(i / segments, j / widthSegments);
+        // Small cyan power node.
+        panelCtx.fillStyle = "#389bc2";
+        panelCtx.fillRect(x + 4, y + 4, 2, 2);
+      }
     }
-  }
 
-  for (let i = 0; i < segments; i++) {
-    for (let j = 0; j < widthSegments; j++) {
-      const a = i * (widthSegments + 1) + j;
-      const b = a + widthSegments + 1;
+    const panelTexture = new THREE.CanvasTexture(panelCanvas);
+    panelTexture.colorSpace = THREE.SRGBColorSpace;
+    panelTexture.wrapS = THREE.RepeatWrapping;
+    panelTexture.wrapT = THREE.ClampToEdgeWrapping;
+    panelTexture.anisotropy =
+      renderer.capabilities.getMaxAnisotropy();
 
-      indices.push(a, b, a + 1);
-      indices.push(b, b + 1, a + 1);
+    // Generate Möbius strip geometry.
+    const positions = [];
+    const uvs = [];
+    const indices = [];
+
+    const segments = 240;
+    const widthSegments = 32;
+    const radius = 1.4;
+    const halfWidth = 0.48;
+
+    for (let i = 0; i <= segments; i++) {
+      const u = (i / segments) * Math.PI * 2;
+
+      for (let j = 0; j <= widthSegments; j++) {
+        const v = (j / widthSegments * 2 - 1) * halfWidth;
+        const twist = u / 2;
+        const r = radius + v * Math.cos(twist);
+
+        positions.push(
+          r * Math.cos(u),
+          r * Math.sin(u),
+          v * Math.sin(twist)
+        );
+
+        uvs.push(i / segments, j / widthSegments);
+      }
     }
+
+    for (let i = 0; i < segments; i++) {
+      for (let j = 0; j < widthSegments; j++) {
+        const a = i * (widthSegments + 1) + j;
+        const b = a + widthSegments + 1;
+
+        indices.push(a, b, a + 1);
+        indices.push(b, b + 1, a + 1);
+      }
+    }
+
+    const geometry = new THREE.BufferGeometry();
+
+    geometry.setAttribute(
+      "position",
+      new THREE.Float32BufferAttribute(positions, 3)
+    );
+    geometry.setAttribute(
+      "uv",
+      new THREE.Float32BufferAttribute(uvs, 2)
+    );
+
+    geometry.setIndex(indices);
+    geometry.computeVertexNormals();
+
+    const material = new THREE.MeshStandardMaterial({
+      map: panelTexture,
+      color: 0xa6bfd4,
+      metalness: 0.85,
+      roughness: 0.3,
+      side: THREE.DoubleSide
+    });
+
+    const mobius = new THREE.Mesh(geometry, material);
+    scene.add(mobius);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 1.5));
+
+    const blueLight = new THREE.PointLight(0x168cff, 45);
+    blueLight.position.set(-3, 2, 4);
+    scene.add(blueLight);
+
+    const goldLight = new THREE.PointLight(0xffad55, 20);
+    goldLight.position.set(3, -2, 2);
+    scene.add(goldLight);
+
+    const whiteLight = new THREE.DirectionalLight(0xffffff, 3);
+    whiteLight.position.set(1, 4, 5);
+    scene.add(whiteLight);
+
+    let animationId = 0;
+
+    function resize() {
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+
+      if (!width || !height) return;
+
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    }
+
+    const observer = new ResizeObserver(resize);
+    observer.observe(canvas);
+    window.addEventListener("resize", resize);
+    resize();
+
+    function animate() {
+      animationId = requestAnimationFrame(animate);
+
+      mobius.rotation.x = -0.3;
+      mobius.rotation.y += 0.004;
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Stop rendering if the canvas is removed from the page.
+    const cleanupObserver = new MutationObserver(() => {
+      if (!document.body.contains(canvas)) {
+        cancelAnimationFrame(animationId);
+        observer.disconnect();
+        cleanupObserver.disconnect();
+        window.removeEventListener("resize", resize);
+
+        geometry.dispose();
+        material.dispose();
+        panelTexture.dispose();
+        renderer.dispose();
+      }
+    });
+
+    cleanupObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  } catch (error) {
+    console.error("Möbius sculpture error:", error);
+
+    if (renderer) renderer.dispose();
+
+    canvas.hidden = true;
+
+    const fallback = document.createElement("p");
+    fallback.className = "sculpture-fallback";
+    fallback.textContent = "3D visual unavailable in this browser.";
+    canvas.parentElement?.appendChild(fallback);
   }
-
-  const geometry = new THREE.BufferGeometry();
-  geometry.setAttribute(
-    "position",
-    new THREE.Float32BufferAttribute(positions, 3)
-  );
-  geometry.setAttribute(
-    "uv",
-    new THREE.Float32BufferAttribute(uvs, 2)
-  );
-  geometry.setIndex(indices);
-  geometry.computeVertexNormals();
-
-  const material = new THREE.MeshStandardMaterial({
-    map: texture,
-    metalness: 0.85,
-    roughness: 0.25,
-    side: THREE.DoubleSide
-  });
-
-  const mobius = new THREE.Mesh(geometry, material);
-  scene.add(mobius);
-
-  scene.add(new THREE.AmbientLight(0xffffff, 1.5));
-
-  const blueLight = new THREE.PointLight(0x39aaff, 45);
-  blueLight.position.set(-3, 2, 4);
-  scene.add(blueLight);
-
-  const goldLight = new THREE.PointLight(0xffad55, 30);
-  goldLight.position.set(3, -2, 2);
-  scene.add(goldLight);
-
-  const whiteLight = new THREE.DirectionalLight(0xffffff, 3);
-  whiteLight.position.set(1, 4, 5);
-  scene.add(whiteLight);
-
-  function resize() {
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-
-    if (!width || !height) return;
-
-    renderer.setSize(width, height, false);
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-  }
-
-  const observer = new ResizeObserver(resize);
-  observer.observe(canvas);
-  resize();
-
-  function animate() {
-    requestAnimationFrame(animate);
-    mobius.rotation.x = -0.3;
-    mobius.rotation.y += 0.004;
-    renderer.render(scene, camera);
-  }
-
-  animate();
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  initMobiusSculpture();
-});
